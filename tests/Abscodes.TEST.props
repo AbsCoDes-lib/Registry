@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <ProductName>$(ProjectName)</ProductName>
+    <BinDir>$(ProjectDir)\..\..\bin\</BinDir>
+    <LibDir>$(ProjectDir)\..\..\lib\</LibDir>
+    <ObjDir>$(ProjectDir)\obj\$(Platform)\$(Configuration)\</ObjDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetName>$(ProductName)</TargetName>
+    <IntDir>$(ObjDir)</IntDir>
+    <OutDir>$(BinDir)</OutDir>
+    <_PropertySheetDisplayName>Abscodes.TEST</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <ImportLibrary>$(LibDir)$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(LibDir)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="ProductName">
+      <Value>$(ProductName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="BinDir">
+      <Value>$(BinDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDir">
+      <Value>$(LibDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ObjDir">
+      <Value>$(ObjDir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

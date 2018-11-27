@@ -1,0 +1,4 @@
+<map id="AbsCoDes::Registry::RegistryKey::DeleteValue" name="AbsCoDes::Registry::RegistryKey::DeleteValue">
+<area shape="rect" id="node2" href="$class_abs_co_des_1_1_registry_1_1_registry_value.html#ab74fc6dc47685ea92488f8b34fb40c90" title="Registry value type (e.g. REG_SZ) associated to current value. " alt="" coords="232,5,400,47"/>
+<area shape="rect" id="node3" href="$class_abs_co_des_1_1_registry_1_1_registry_key.html#a6a9fd534aaf9c2373e44f05cbab51fa0" title="Is the wrapped HKEY handle valid? " alt="" coords="242,71,390,112"/>
+</map>

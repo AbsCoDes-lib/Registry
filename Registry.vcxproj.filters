@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{0b0ba2cb-29fa-4609-ae76-885d63c873ae}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{d0bdb275-cbc8-4e4a-9a1a-7353f3acad8f}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include\Registry">
+      <UniqueIdentifier>{a6247e47-25b4-444a-8581-fe5b5bc629d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Registry">
+      <UniqueIdentifier>{6de24b9e-7c0c-4c1b-b7bb-a9a6fd19efaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Registry\enum">
+      <UniqueIdentifier>{fde4c559-2417-4b1c-b096-6cf5a541acf2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Registry\RegistryApi.h">
+      <Filter>include\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Registry\RegistryKey.h">
+      <Filter>include\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Registry\Registry.h">
+      <Filter>include\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Registry\RegistryAccessRights.h">
+      <Filter>include\Registry\enum</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Registry\RegistryHive.h">
+      <Filter>include\Registry\enum</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Registry\RegistryView.h">
+      <Filter>include\Registry\enum</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Registry\RegistryException.h">
+      <Filter>include\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Registry\RegistryValue.h">
+      <Filter>include\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Registry\RegistryValueType.h">
+      <Filter>include\Registry\enum</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Registry\RegistryOption.h">
+      <Filter>include\Registry\enum</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Readme.md" />
+    <None Include=".gitignore" />
+    <None Include=".clang-format" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Licence.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Registry\RegistryException.cpp">
+      <Filter>src\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Registry\RegistryValue.cpp">
+      <Filter>src\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Registry\RegistryKey.cpp">
+      <Filter>src\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Registry\Registry.cpp">
+      <Filter>src\Registry</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
