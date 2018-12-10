@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['_5fbinary',['_binary',['../class_abs_co_des_1_1_registry_1_1_registry_value.html#aa358d18f05f7c6ba017ee5ffceacf038',1,'AbsCoDes::Registry::RegistryValue']]],
-  ['_5fdirty',['_dirty',['../class_abs_co_des_1_1_registry_1_1_registry_key.html#a3abddcfe664ee22f989f82c2b66c81c6',1,'AbsCoDes::Registry::RegistryKey']]],
-  ['_5fdword',['_dword',['../class_abs_co_des_1_1_registry_1_1_registry_value.html#af08f7adde118421b2930a77e98530725',1,'AbsCoDes::Registry::RegistryValue']]],
-  ['_5fexpandstring',['_expandString',['../class_abs_co_des_1_1_registry_1_1_registry_value.html#a2b84d50a378e71d3957056d1e8e50c2a',1,'AbsCoDes::Registry::RegistryValue']]],
-  ['_5fhkey',['_hKey',['../class_abs_co_des_1_1_registry_1_1_registry_key.html#a1abf6a734f2472827d2915a8df3c99b3',1,'AbsCoDes::Registry::RegistryKey']]],
-  ['_5fkeyname',['_keyName',['../class_abs_co_des_1_1_registry_1_1_exceptions_1_1_registry_exception.html#ab8267a1388073924832aa2d20ffda482',1,'AbsCoDes::Registry::Exceptions::RegistryException::_keyName()'],['../class_abs_co_des_1_1_registry_1_1_registry_key.html#a8c4c663faa1306257fdc99c5ecf78352',1,'AbsCoDes::Registry::RegistryKey::_keyName()']]],
-  ['_5fmaxkeylength',['_maxKeyLength',['../class_abs_co_des_1_1_registry_1_1_registry_key.html#ae890c0ef0e9570ff5d0b35fe80eb75b0',1,'AbsCoDes::Registry::RegistryKey']]],
-  ['_5fmultistring',['_multiString',['../class_abs_co_des_1_1_registry_1_1_registry_value.html#a5669e2bb62d2717fc9348312c094a8d1',1,'AbsCoDes::Registry::RegistryValue']]],
-  ['_5fqword',['_qword',['../class_abs_co_des_1_1_registry_1_1_registry_value.html#ac618a8093ae80a691be051a68c18b52d',1,'AbsCoDes::Registry::RegistryValue']]],
-  ['_5fstring',['_string',['../class_abs_co_des_1_1_registry_1_1_registry_value.html#aad1461a5e5259cb96d37e441e279fb04',1,'AbsCoDes::Registry::RegistryValue']]],
-  ['_5ftype',['_type',['../class_abs_co_des_1_1_registry_1_1_registry_value.html#ab0ef1e10c35a0b5cdb89533d7f8c2157',1,'AbsCoDes::Registry::RegistryValue']]]
+  ['_5fbinary',['_binary',['../classabscodes_1_1registry_1_1_registry_value.html#a51bbfaeb8534fcfab859ce45dd72b725',1,'abscodes::registry::RegistryValue']]],
+  ['_5fdirty',['_dirty',['../classabscodes_1_1registry_1_1_registry_key.html#a294ea8c6fcc01bd599c9b022b2b0e136',1,'abscodes::registry::RegistryKey']]],
+  ['_5fdword',['_dword',['../classabscodes_1_1registry_1_1_registry_value.html#af49f04fd88feddedc33ec216aa9cffd1',1,'abscodes::registry::RegistryValue']]],
+  ['_5fexpandstring',['_expandString',['../classabscodes_1_1registry_1_1_registry_value.html#a103efee92ac42e40c6244cce84ec31df',1,'abscodes::registry::RegistryValue']]],
+  ['_5fhkey',['_hKey',['../classabscodes_1_1registry_1_1_registry_key.html#afa315d9c738c7414df20c2b5e22dc0b7',1,'abscodes::registry::RegistryKey']]],
+  ['_5fkeyname',['_keyName',['../classabscodes_1_1registry_1_1_exceptions_1_1_registry_exception.html#ad68e74750e1ea23150b24037c28b4ead',1,'abscodes::registry::Exceptions::RegistryException::_keyName()'],['../classabscodes_1_1registry_1_1_registry_key.html#a99f5c73e91c3a13ad02dfcc6622af9de',1,'abscodes::registry::RegistryKey::_keyName()']]],
+  ['_5fmaxkeylength',['_maxKeyLength',['../classabscodes_1_1registry_1_1_registry_key.html#aa43372a9cfe9e22c79fc6ec2363fe88d',1,'abscodes::registry::RegistryKey']]],
+  ['_5fmultistring',['_multiString',['../classabscodes_1_1registry_1_1_registry_value.html#a9cef367313f7180f61972604300f1ba0',1,'abscodes::registry::RegistryValue']]],
+  ['_5fqword',['_qword',['../classabscodes_1_1registry_1_1_registry_value.html#aed015006a88eeb87c3fcdaadd54e6328',1,'abscodes::registry::RegistryValue']]],
+  ['_5fstring',['_string',['../classabscodes_1_1registry_1_1_registry_value.html#a357636806eea2b3f5ecac41df0b5e5dd',1,'abscodes::registry::RegistryValue']]],
+  ['_5ftype',['_type',['../classabscodes_1_1registry_1_1_registry_value.html#a87cbee5b8c804f77b0eca9b1d4172944',1,'abscodes::registry::RegistryValue']]]
 ];

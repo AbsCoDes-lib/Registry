@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['attach',['Attach',['../class_abs_co_des_1_1_registry_1_1_registry_key.html#af391c1edb9dfc30e762a218e901b0f68',1,'AbsCoDes::Registry::RegistryKey']]]
+  ['attach',['Attach',['../classabscodes_1_1registry_1_1_registry_key.html#ae2a1aa6978fc686dd5542c358b56c2dc',1,'abscodes::registry::RegistryKey']]]
 ];

@@ -10,12 +10,12 @@
 //===-------------------------------------------------------------------------------------------------------------===//
 
 
-#ifndef RegistryView_INCLUDED
-#define RegistryView_INCLUDED
+#ifndef REGISTRY_VIEW_INCLUDED
+#define REGISTRY_VIEW_INCLUDED
 
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
 
   ///
@@ -44,8 +44,8 @@ namespace Registry {
   } // namespace AccessRights
 
 
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes
 
 
-#endif // RegistryView_INCLUDED
+#endif // REGISTRY_VIEW_INCLUDED

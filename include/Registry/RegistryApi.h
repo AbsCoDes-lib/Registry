@@ -1,4 +1,4 @@
-//===--- Registry.h ------------------------------------------------------------------------------------*- C++ -*-===//
+//===--- RegistryApi.h ---------------------------------------------------------------------------------*- C++ -*-===//
 //
 // This source file is part of the Absolute Codes Design open source projects
 //
@@ -10,8 +10,8 @@
 //===-------------------------------------------------------------------------------------------------------------===//
 
 
-#ifndef RegistryApi_INCLUDED
-#define RegistryApi_INCLUDED
+#ifndef REGISTRY_API_INCLUDED
+#define REGISTRY_API_INCLUDED
 
 #if _MSC_VER > 1000
 #  pragma once
@@ -54,20 +54,20 @@
 // from a DLL simpler. All files within this DLL are compiled with the REGISTRY_EXPORTS
 // symbol defined on the command line. this symbol should not be defined on any project
 // that uses this DLL. This way any other project whose source files include this file see
-// Registry_API functions as being imported from a DLL, wheras this DLL sees symbols
+// REGISTRY_API functions as being imported from a DLL, wheras this DLL sees symbols
 // defined with this macro as being exported.
 //
 #if defined(_WIN32) && defined(REGISTRY_DLL)
 #  ifdef REGISTRY_EXPORTS
-#    define Registry_API __declspec(dllexport)
+#    define REGISTRY_API __declspec(dllexport)
 #  else
-#    define Registry_API __declspec(dllimport)
+#    define REGISTRY_API __declspec(dllimport)
 #  endif
 #endif
 
 
-#if !defined(Registry_API)
-#  define Registry_API
+#if !defined(REGISTRY_API)
+#  define REGISTRY_API
 #endif
 
 
@@ -125,4 +125,4 @@
 #include <string>
 
 
-#endif // RegistryApi_INCLUDED
+#endif // REGISTRY_API_INCLUDED

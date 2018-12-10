@@ -10,12 +10,12 @@
 //===-------------------------------------------------------------------------------------------------------------===//
 
 
-#ifndef RegistryValueKind_INCLUDED
-#define RegistryValueKind_INCLUDED
+#ifndef REGISTRY_VALUE_KIND_INCLUDED
+#define REGISTRY_VALUE_KIND_INCLUDED
 
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
   ///
   /// The RegistryValueType enumeration defines the set of supported registry data types.
@@ -77,8 +77,8 @@ namespace Registry {
   } // namespace ValueType
 
 
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes
 
 
-#endif // RegistryValueKind_INCLUDED
+#endif // REGISTRY_VALUE_KIND_INCLUDED

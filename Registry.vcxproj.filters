@@ -52,12 +52,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Readme.md" />
     <None Include=".gitignore" />
     <None Include=".clang-format" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Licence.txt" />
+    <None Include="LICENCE" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Registry\RegistryException.cpp">

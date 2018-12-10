@@ -13,8 +13,8 @@
 
 #include "Registry/RegistryException.h"
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
   RegistryValue::RegistryValue(RegistryValueType type)
     : _type(type) {}
@@ -161,5 +161,5 @@ namespace Registry {
     return _binary;
   }
 
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes

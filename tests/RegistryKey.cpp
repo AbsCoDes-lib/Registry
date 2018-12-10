@@ -5,7 +5,7 @@
 #include <Registry\RegistryKey.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace AbsCoDes::Registry;
+using namespace abscodes::registry;
 
 namespace RegistryTests
 {		

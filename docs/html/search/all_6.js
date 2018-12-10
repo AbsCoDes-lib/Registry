@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['get',['Get',['../class_abs_co_des_1_1_registry_1_1_registry_key.html#a0419ed21b37167244011fab9eaadddd5',1,'AbsCoDes::Registry::RegistryKey']]],
-  ['gettype',['GetType',['../class_abs_co_des_1_1_registry_1_1_registry_value.html#ab74fc6dc47685ea92488f8b34fb40c90',1,'AbsCoDes::Registry::RegistryValue']]]
+  ['get',['Get',['../classabscodes_1_1registry_1_1_registry_key.html#a35053b08a70ba0a1876e0fcb4be27a61',1,'abscodes::registry::RegistryKey']]],
+  ['gettype',['GetType',['../classabscodes_1_1registry_1_1_registry_value.html#a3627a79d5fa6d16b752dffa12afb08d2',1,'abscodes::registry::RegistryValue']]]
 ];

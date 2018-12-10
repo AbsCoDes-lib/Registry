@@ -10,8 +10,8 @@
 //===-------------------------------------------------------------------------------------------------------------===//
 
 
-#ifndef RegistryKey_INCLUDED
-#define RegistryKey_INCLUDED
+#ifndef REGISTRY_KEY_INCLUDED
+#define REGISTRY_KEY_INCLUDED
 
 #include "Registry/RegistryApi.h"
 
@@ -31,12 +31,12 @@
 #pragma warning(disable : 4251)
 
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
 
   ///
-  class Registry_API RegistryKey {
+  class REGISTRY_API RegistryKey {
 
    public:
     ///
@@ -411,9 +411,9 @@ namespace Registry {
     return a.Get() >= b.Get();
   }
   */
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes
 
 #pragma warning(pop)
 
-#endif // RegistryKey_INCLUDED
+#endif // REGISTRY_KEY_INCLUDED

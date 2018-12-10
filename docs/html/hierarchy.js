@@ -1,8 +1,8 @@
 var hierarchy =
 [
     [ "ErrorCodeException", null, [
-      [ "AbsCoDes::Registry::Exceptions::RegistryException", "class_abs_co_des_1_1_registry_1_1_exceptions_1_1_registry_exception.html", null ]
+      [ "abscodes::registry::Exceptions::RegistryException", "classabscodes_1_1registry_1_1_exceptions_1_1_registry_exception.html", null ]
     ] ],
-    [ "AbsCoDes::Registry::RegistryKey", "class_abs_co_des_1_1_registry_1_1_registry_key.html", null ],
-    [ "AbsCoDes::Registry::RegistryValue", "class_abs_co_des_1_1_registry_1_1_registry_value.html", null ]
+    [ "abscodes::registry::RegistryKey", "classabscodes_1_1registry_1_1_registry_key.html", null ],
+    [ "abscodes::registry::RegistryValue", "classabscodes_1_1registry_1_1_registry_value.html", null ]
 ];

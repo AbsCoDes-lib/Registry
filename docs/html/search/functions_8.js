@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queryvaluetype',['QueryValueType',['../class_abs_co_des_1_1_registry_1_1_registry_key.html#ab47787e9edb28ebd80091078e8d2afbc',1,'AbsCoDes::Registry::RegistryKey']]]
+  ['queryvaluetype',['QueryValueType',['../classabscodes_1_1registry_1_1_registry_key.html#a53db686d9f0acc63b78ce098fb5749f2',1,'abscodes::registry::RegistryKey']]]
 ];

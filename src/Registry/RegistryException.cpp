@@ -13,8 +13,8 @@
 #include "Registry/RegistryException.h"
 
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
   namespace Exceptions {
 
 
@@ -55,5 +55,5 @@ namespace Registry {
     }
 
   } // namespace Exceptions
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes

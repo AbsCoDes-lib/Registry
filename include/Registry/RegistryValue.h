@@ -10,8 +10,8 @@
 //===-------------------------------------------------------------------------------------------------------------===//
 
 
-#ifndef RegistryValue_INCLUDED
-#define RegistryValue_INCLUDED
+#ifndef REGISTRY_VALUE_INCLUDED
+#define REGISTRY_VALUE_INCLUDED
 
 #include "Registry/RegistryApi.h"
 
@@ -23,13 +23,13 @@
 #pragma warning(push)
 #pragma warning(disable : 4251)
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
   ///
   /// "Variant-style" Registry value.
   ///
-  class Registry_API RegistryValue {
+  class REGISTRY_API RegistryValue {
 
    public:
     ///
@@ -101,9 +101,9 @@ namespace Registry {
   };
 
 
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes
 
 #pragma warning(pop)
 
-#endif // RegistryValue_INCLUDED
+#endif // REGISTRY_VALUE_INCLUDED

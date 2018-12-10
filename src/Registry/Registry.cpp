@@ -13,8 +13,8 @@
 
 #include "Commons/NumberUtils.h"
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
 
   /// Retrieves the key associated with the specified name, in the specified registry hive.
@@ -97,7 +97,7 @@ namespace Registry {
 
   int GetInt(RegistryKey& key, const std::string& valueName, int defaultValue) {
     try {
-      return Commons::NumberUtils::toNumber<int>(key.GetStringValue(valueName));
+      return commons::number::toNumber<int>(key.GetStringValue(valueName));
     }
     catch(...) {
     }
@@ -106,7 +106,7 @@ namespace Registry {
 
   unsigned int GetUInt(RegistryKey& key, const std::string& valueName, unsigned int defaultValue) {
     try {
-      return Commons::NumberUtils::toNumber<unsigned int>(key.GetStringValue(valueName));
+      return commons::number::toNumber<unsigned int>(key.GetStringValue(valueName));
     }
     catch(...) {
     }
@@ -115,7 +115,7 @@ namespace Registry {
 
   long GetLong(RegistryKey& key, const std::string& valueName, long defaultValue) {
     try {
-      return Commons::NumberUtils::toNumber<long>(key.GetStringValue(valueName));
+      return commons::number::toNumber<long>(key.GetStringValue(valueName));
     }
     catch(...) {
     }
@@ -124,7 +124,7 @@ namespace Registry {
 
   unsigned long GetULong(RegistryKey& key, const std::string& valueName, unsigned long defaultValue) {
     try {
-      return Commons::NumberUtils::toNumber<unsigned long>(key.GetStringValue(valueName));
+      return commons::number::toNumber<unsigned long>(key.GetStringValue(valueName));
     }
     catch(...) {
     }
@@ -133,7 +133,7 @@ namespace Registry {
 
   double GetDouble(RegistryKey& key, const std::string& valueName, double defaultValue) {
     try {
-      return Commons::NumberUtils::toNumber<double>(key.GetStringValue(valueName));
+      return commons::number::toNumber<double>(key.GetStringValue(valueName));
     }
     catch(...) {
     }
@@ -180,7 +180,7 @@ namespace Registry {
 
   void SetInt(RegistryKey& key, const std::string& valueName, int value) {
     try {
-      key.SetStringValue(valueName, Commons::NumberUtils::toString(value));
+      key.SetStringValue(valueName, commons::number::toString(value));
     }
     catch(...) {
     }
@@ -188,7 +188,7 @@ namespace Registry {
 
   void SetUInt(RegistryKey& key, const std::string& valueName, unsigned int value) {
     try {
-      key.SetStringValue(valueName, Commons::NumberUtils::toString(value));
+      key.SetStringValue(valueName, commons::number::toString(value));
     }
     catch(...) {
     }
@@ -196,7 +196,7 @@ namespace Registry {
 
   void SetLong(RegistryKey& key, const std::string& valueName, long value) {
     try {
-      key.SetStringValue(valueName, Commons::NumberUtils::toString(value));
+      key.SetStringValue(valueName, commons::number::toString(value));
     }
     catch(...) {
     }
@@ -204,7 +204,7 @@ namespace Registry {
 
   void SetULong(RegistryKey& key, const std::string& valueName, unsigned long value) {
     try {
-      key.SetStringValue(valueName, Commons::NumberUtils::toString(value));
+      key.SetStringValue(valueName, commons::number::toString(value));
     }
     catch(...) {
     }
@@ -212,12 +212,12 @@ namespace Registry {
 
   void SetDouble(RegistryKey& key, const std::string& valueName, double value) {
     try {
-      key.SetStringValue(valueName, Commons::NumberUtils::toString(value));
+      key.SetStringValue(valueName, commons::number::toString(value));
     }
     catch(...) {
     }
   }
 
 
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes

@@ -10,14 +10,14 @@
 //===-------------------------------------------------------------------------------------------------------------===//
 
 
-#ifndef RegistryAccessRights_INCLUDED
-#define RegistryAccessRights_INCLUDED
+#ifndef REGISTRY_ACCESS_RIGHTS_INCLUDED
+#define REGISTRY_ACCESS_RIGHTS_INCLUDED
 
 
 #include "Registry/RegistryApi.h"
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
   ///
   /// The RegistryAccessRights enumeration defines the set of supported registry data types.
@@ -59,8 +59,8 @@ namespace Registry {
 
   } // namespace AccessRights
 
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes
 
 
-#endif // RegistryAccessRights_INCLUDED
+#endif // REGISTRY_ACCESS_RIGHTS_INCLUDED

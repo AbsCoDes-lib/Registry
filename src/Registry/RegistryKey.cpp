@@ -15,8 +15,8 @@
 #include "Commons/Utf8Convert.h"
 #include "Registry/RegistryException.h"
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
   RegistryKey::RegistryKey(RegistryHive hive) noexcept
     : _hive(hive)
@@ -78,7 +78,7 @@ namespace Registry {
     return IsValid();
   }
 
-  RegistryHive Registry::RegistryKey::GetHive() const {
+  RegistryHive registry::RegistryKey::GetHive() const {
     EnsureNotDisposed();
     return _hive;
   }
@@ -88,7 +88,7 @@ namespace Registry {
     return _view;
   }
 
-  RegistryAccessRights Registry::RegistryKey::GetAccessRights() const {
+  RegistryAccessRights registry::RegistryKey::GetAccessRights() const {
     EnsureNotDisposed();
     return _access;
   }
@@ -178,7 +178,7 @@ namespace Registry {
     // validate the subkey
     ValidateKeyName(subkey);
 
-    std::wstring wsubkey = Commons::Utf8Convert::Utf8ToUtf16(subkey);
+    std::wstring wsubkey = commons::utf8convert::Utf8ToUtf16(subkey);
 
     HKEY       hKey    = nullptr;
     const auto retCode = ::RegCreateKeyEx(_hKey, //
@@ -214,7 +214,7 @@ namespace Registry {
     // validate the subkey
     ValidateKeyName(subkey);
 
-    std::wstring wsubkey = Commons::Utf8Convert::Utf8ToUtf16(subkey);
+    std::wstring wsubkey = commons::utf8convert::Utf8ToUtf16(subkey);
 
     HKEY       hKey    = nullptr;
     const auto retCode = ::RegOpenKeyEx(_hKey, //
@@ -247,7 +247,7 @@ namespace Registry {
     // validate the subkey
     ValidateKeyName(subkey);
 
-    std::wstring wsubkey = Commons::Utf8Convert::Utf8ToUtf16(subkey);
+    std::wstring wsubkey = commons::utf8convert::Utf8ToUtf16(subkey);
 
     const auto retCode = ::RegDeleteKeyEx(_hKey, //
                                           wsubkey.c_str(), //
@@ -275,7 +275,7 @@ namespace Registry {
     // validate the subkey
     ValidateKeyName(subkey);
 
-    std::wstring wsubkey = Commons::Utf8Convert::Utf8ToUtf16(subkey);
+    std::wstring wsubkey = commons::utf8convert::Utf8ToUtf16(subkey);
 
     RegistryKey key = OpenSubKey(subkey, view, desiredAccess, RegistryOption::None);
 
@@ -298,7 +298,7 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
     const auto retCode = ::RegDeleteValue(_hKey, //
                                           sValueName.c_str() //
@@ -320,7 +320,7 @@ namespace Registry {
       case RegistryValueType::ExpandString: return SetExpandStringValue(valueName, value.ExpandString());
       case RegistryValueType::MultiString: return SetMultiStringValue(valueName, value.MultiString());
       case RegistryValueType::Binary: return SetBinaryValue(valueName, value.Binary());
-      default: throw std::invalid_argument("Unsupported Windows Registry value type.");
+      default: throw std::invalid_argument("Unsupported Windows registry value type.");
     }
   }
 
@@ -347,7 +347,7 @@ namespace Registry {
 
     const DWORD        data       = value;
     const DWORD        dataSize   = sizeof(data);
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
     const auto         result     = ::RegSetValueEx(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
@@ -365,7 +365,7 @@ namespace Registry {
 
     const ULONGLONG    data       = value;
     const DWORD        dataSize   = sizeof(data);
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
     const auto         result     = ::RegSetValueEx(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
@@ -381,8 +381,8 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
-    const std::wstring sValue     = Commons::Utf8Convert::Utf8ToUtf16(value);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
+    const std::wstring sValue     = commons::utf8convert::Utf8ToUtf16(value);
     // According to MSDN doc, this size must include the terminating NULL
     // Note that size is in *BYTES*, so we must scale by wchar_t.
     const DWORD dataSize = SafeSizeToDwordCast((sValue.size() + 1) * sizeof(wchar_t));
@@ -402,8 +402,8 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
-    const std::wstring sValue     = Commons::Utf8Convert::Utf8ToUtf16(value);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
+    const std::wstring sValue     = commons::utf8convert::Utf8ToUtf16(value);
     // According to MSDN doc, this size must include the terminating NULL
     // Note that size is in *BYTES*, so we must scale by wchar_t.
     const DWORD dataSize = SafeSizeToDwordCast((sValue.size() + 1) * sizeof(wchar_t));
@@ -423,8 +423,8 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring               sValueName   = Commons::Utf8Convert::Utf8ToUtf16(valueName);
-    const std::vector<std::wstring>& sMultiString = Commons::Utf8Convert::Utf8ToUtf16(value);
+    const std::wstring               sValueName   = commons::utf8convert::Utf8ToUtf16(valueName);
+    const std::vector<std::wstring>& sMultiString = commons::utf8convert::Utf8ToUtf16(value);
 
     // We need to build a whole array containing the multi-strings, with double-NUL termination
     std::vector<wchar_t> buffer;
@@ -480,7 +480,7 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
     const std::vector<BYTE>& data     = value;
     const DWORD              dataSize = SafeSizeToDwordCast(data.size());
@@ -499,7 +499,7 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
     const auto         result     = ::RegSetValueEx(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
@@ -536,7 +536,7 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
     DWORD data {}; // to be read from the registry
     DWORD dataSize = sizeof(data); // size of data, in bytes
@@ -561,7 +561,7 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
     ULONGLONG data {}; // to be read from the registry
     DWORD     dataSize = sizeof(data); // size of data, in bytes
@@ -586,7 +586,7 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
     // Get the size of the result string
     DWORD       dataSize = 0; // size of data, in bytes
@@ -624,14 +624,14 @@ namespace Registry {
     // Remove the NUL terminator scribbled by RegGetValue from the wstring
     result.resize((dataSize / sizeof(wchar_t)) - 1);
 
-    return Commons::Utf8Convert::Utf16ToUtf8(result);
+    return commons::utf8convert::Utf16ToUtf8(result);
   }
 
   std::string RegistryKey::GetExpandStringValue(const std::string& valueName, ExpandStringOption expandOption) {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
     DWORD flags = RRF_RT_REG_EXPAND_SZ;
 
@@ -674,14 +674,14 @@ namespace Registry {
     // Remove the NUL terminator scribbled by RegGetValue from the wstring
     result.resize((dataSize / sizeof(wchar_t)) - 1);
 
-    return Commons::Utf8Convert::Utf16ToUtf8(result);
+    return commons::utf8convert::Utf16ToUtf8(result);
   }
 
   std::vector<std::string> RegistryKey::GetMultiStringValue(const std::string& valueName) {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
     const DWORD flags = RRF_RT_REG_MULTI_SZ;
 
@@ -736,14 +736,14 @@ namespace Registry {
       currStringPtr += currStringLength + 1;
     }
 
-    return Commons::Utf8Convert::Utf16ToUtf8(result);
+    return commons::utf8convert::Utf16ToUtf8(result);
   }
 
   std::vector<BYTE> RegistryKey::GetBinaryValue(const std::string& valueName) {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
     const DWORD flags = RRF_RT_REG_BINARY;
 
@@ -782,7 +782,7 @@ namespace Registry {
 
     _ASSERTE(IsValid());
 
-    const std::wstring sValueName = Commons::Utf8Convert::Utf8ToUtf16(valueName);
+    const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
     DWORD typeId {}; // will be returned by RegQueryValueEx
 
@@ -879,7 +879,7 @@ namespace Registry {
       // subkey name in the subKeyNameLen output parameter
       // (not including the terminating NUL).
       // So I can build a string based on that length.
-      std::string subkey = Commons::Utf8Convert::Utf16ToUtf8(std::wstring(nameBuffer.get(), subKeyNameLen));
+      std::string subkey = commons::utf8convert::Utf16ToUtf8(std::wstring(nameBuffer.get(), subKeyNameLen));
       subkeyNames.push_back(subkey);
     }
 
@@ -944,7 +944,7 @@ namespace Registry {
       // value name in the valueNameLen output parameter
       // (not including the terminating NUL).
       // So we can build a wstring based on that.
-      std::string       subkey = Commons::Utf8Convert::Utf16ToUtf8(std::wstring(nameBuffer.get(), valueNameLen));
+      std::string       subkey = commons::utf8convert::Utf16ToUtf8(std::wstring(nameBuffer.get(), valueNameLen));
       RegistryValueType type   = ValueType::Handle(valueType);
       valueInfo.push_back(std::make_pair(subkey, type));
     }
@@ -1044,7 +1044,7 @@ namespace Registry {
 
   void RegistryKey::ValidateKeyName(std::string& keyName) {
     FixupName(keyName);
-    Commons::StringUtils::InPlace::trim(keyName);
+    commons::string::InPlace::trim(keyName);
 
     // check keyname
     if(keyName.empty()) {
@@ -1071,11 +1071,11 @@ namespace Registry {
     if(name.find_first_of('\\') == std::string::npos)
       return name;
 
-    name = Commons::StringUtils::replaceAll(name, "\\\\", "\\");
-    name = Commons::StringUtils::ltrim(name, '\\');
-    name = Commons::StringUtils::rtrim(name, '\\');
+    name = commons::string::replaceAll(name, "\\\\", "\\");
+    name = commons::string::ltrim(name, '\\');
+    name = commons::string::rtrim(name, '\\');
     return name;
   }
 
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes

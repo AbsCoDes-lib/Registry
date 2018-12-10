@@ -5,7 +5,7 @@
 #include <Registry\RegistryKey.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace AbsCoDes::Registry;
+using namespace abscodes::registry;
 
 namespace Registry
 {		
@@ -37,15 +37,15 @@ namespace Registry
 			RegistryValue qw1(RegistryValueType::QWord); qw1.QWord() = 2147483648;
 	
 			// Test SetValue and GetValue
-			AbsCoDes::Registry::SetValue(TestRegistryKey, "DValue", dw1);
-			Assert::IsTrue(AbsCoDes::Registry::GetValue(TestRegistryKey, "DValue").DWord() == dw1.DWord());
-			AbsCoDes::Registry::SetValue(TestRegistryKey, "QValue", qw1);
-			Assert::IsTrue(AbsCoDes::Registry::GetValue(TestRegistryKey, "QValue").QWord() == qw1.QWord());
+			abscodes::registry::SetValue(TestRegistryKey, "DValue", dw1);
+			Assert::IsTrue(abscodes::registry::GetValue(TestRegistryKey, "DValue").DWord() == dw1.DWord());
+			abscodes::registry::SetValue(TestRegistryKey, "QValue", qw1);
+			Assert::IsTrue(abscodes::registry::GetValue(TestRegistryKey, "QValue").QWord() == qw1.QWord());
 			
 			// Test SetInt and GetInt
-			AbsCoDes::Registry::SetInt(TestRegistryKey, "iValue", -10);
-			Assert::IsTrue(AbsCoDes::Registry::GetInt(TestRegistryKey, "iValue", 0) == -10);
-			Assert::IsTrue(AbsCoDes::Registry::GetString(TestRegistryKey, "iValue", "0") == "-10");
+			abscodes::registry::SetInt(TestRegistryKey, "iValue", -10);
+			Assert::IsTrue(abscodes::registry::GetInt(TestRegistryKey, "iValue", 0) == -10);
+			Assert::IsTrue(abscodes::registry::GetString(TestRegistryKey, "iValue", "0") == "-10");
 		}
   };
 }

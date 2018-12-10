@@ -49,10 +49,8 @@
   <ItemGroup>
     <None Include=".clang-format" />
     <None Include=".gitignore" />
-    <None Include="Readme.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Licence.txt" />
+    <None Include="LICENCE" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Commons\Commons.vcxproj">

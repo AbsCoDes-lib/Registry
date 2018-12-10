@@ -8,8 +8,8 @@
 #include "Registry\RegistryValue.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace AbsCoDes::Registry;
-using namespace AbsCoDes::Registry::Exceptions;
+using namespace abscodes::registry;
+using namespace abscodes::registry::Exceptions;
 
 namespace RegistryTests
 {		

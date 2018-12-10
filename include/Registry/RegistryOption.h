@@ -10,13 +10,13 @@
 //===-------------------------------------------------------------------------------------------------------------===//
 
 
-#ifndef RegistryOption_INCLUDED
-#define RegistryOption_INCLUDED
+#ifndef REGISTRY_OPTION_INCLUDED
+#define REGISTRY_OPTION_INCLUDED
 
 #include "Registry/RegistryApi.h"
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
 
   ///
@@ -46,9 +46,9 @@ namespace Registry {
   } // namespace Option
 
 
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes
 
 #pragma warning(pop)
 
-#endif // RegistryOption_INCLUDED
+#endif // REGISTRY_OPTION_INCLUDED

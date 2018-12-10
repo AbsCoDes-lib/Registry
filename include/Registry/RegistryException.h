@@ -10,20 +10,20 @@
 //===-------------------------------------------------------------------------------------------------------------===//
 
 
-#ifndef RegistryException_INCLUDED
-#define RegistryException_INCLUDED
+#ifndef REGISTRY_EXCEPTION_INCLUDED
+#define REGISTRY_EXCEPTION_INCLUDED
 
 #include "Registry\RegistryApi.h"
 
 #include "Commons\Exceptions\ErrorCodeException.h"
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
   namespace Exceptions {
 
 
     ///
-    class Registry_API RegistryException : public AbsCoDes::Commons::Exceptions::ErrorCodeException {
+    class REGISTRY_API RegistryException : public abscodes::commons::exceptions::ErrorCodeException {
 
      public:
       /// Construct a RegistryException.
@@ -61,8 +61,8 @@ namespace Registry {
 
 
   } // namespace Exceptions
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes
 
 
-#endif // RegistryException_INCLUDED
+#endif // REGISTRY_EXCEPTION_INCLUDED

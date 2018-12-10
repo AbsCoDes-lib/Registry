@@ -1,0 +1,6 @@
+<map id="abscodes::registry::RegistryKey::DeleteSubKey" name="abscodes::registry::RegistryKey::DeleteSubKey">
+<area shape="rect" id="node2" href="$classabscodes_1_1registry_1_1_registry_key.html#ace602a07caa8587f2c1820e48240e377" title="Ensure the key is writable. " alt="" coords="245,71,451,112"/>
+<area shape="rect" id="node4" href="$classabscodes_1_1registry_1_1_registry_key.html#adc9c33ab7e703b9440f1c9bd192b88f1" title="Is the wrapped HKEY handle valid? " alt="" coords="771,68,919,109"/>
+<area shape="rect" id="node3" href="$classabscodes_1_1registry_1_1_registry_key.html#af3e6f3d4fb489e5b8253fbed77a14e87" title="Ensure the key is not closed. " alt="" coords="499,5,723,47"/>
+<area shape="rect" id="node5" href="$classabscodes_1_1registry_1_1_registry_key.html#ad798c075fb7b020fa88c87fd7615df58" title="Fixup multiple slashes to a single slash. " alt="" coords="523,71,698,112"/>
+</map>

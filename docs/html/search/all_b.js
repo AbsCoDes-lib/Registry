@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['swapwith',['SwapWith',['../class_abs_co_des_1_1_registry_1_1_registry_key.html#aff7249ed9406469194414c18c85a6a29',1,'AbsCoDes::Registry::RegistryKey']]]
+  ['swapwith',['SwapWith',['../classabscodes_1_1registry_1_1_registry_key.html#ad64c99a6a7d94c073d33079a95e9bc7f',1,'abscodes::registry::RegistryKey']]]
 ];

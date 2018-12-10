@@ -10,14 +10,14 @@
 //===-------------------------------------------------------------------------------------------------------------===//
 
 
-#ifndef RegistryHive_INCLUDED
-#define RegistryHive_INCLUDED
+#ifndef REGISTRY_HIVE_INCLUDED
+#define REGISTRY_HIVE_INCLUDED
 
 
 #include "Registry/RegistryApi.h"
 
-namespace AbsCoDes {
-namespace Registry {
+namespace abscodes {
+namespace registry {
 
 
   ///
@@ -64,15 +64,15 @@ namespace Registry {
           case RegistryHive::PerformanceData: return "HKEY_PERFORMANCE_DATA";
           case RegistryHive::CurrentConfig: return "HKEY_CURRENT_CONFIG";
           case RegistryHive::DynData: return "HKEY_DYN_DATA";
-          default: throw std::invalid_argument("Unsupported Windows Registry hive.");
+          default: throw std::invalid_argument("Unsupported Windows registry hive.");
         }
       }
     }
   } // namespace Hive
 
 
-} // namespace Registry
-} // namespace AbsCoDes
+} // namespace registry
+} // namespace abscodes
 
 
-#endif // RegistryHive_INCLUDED
+#endif // REGISTRY_HIVE_INCLUDED
