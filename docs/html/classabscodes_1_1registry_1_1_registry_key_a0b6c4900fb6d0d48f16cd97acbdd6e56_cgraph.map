@@ -1,7 +1,6 @@
 <map id="abscodes::registry::RegistryKey::CreateSubKey" name="abscodes::registry::RegistryKey::CreateSubKey">
-<area shape="rect" id="node2" href="$classabscodes_1_1registry_1_1_registry_key.html#ace602a07caa8587f2c1820e48240e377" title="Ensure the key is writable. " alt="" coords="247,71,452,112"/>
-<area shape="rect" id="node4" href="$classabscodes_1_1registry_1_1_registry_key.html#adc9c33ab7e703b9440f1c9bd192b88f1" title="Is the wrapped HKEY handle valid? " alt="" coords="772,68,920,109"/>
-<area shape="rect" id="node6" href="$classabscodes_1_1registry_1_1_registry_key.html#aded37a07dc686a1e1f74074534134d4a" title="Initialize an empty RegistryKey. " alt="" coords="259,188,439,229"/>
+<area shape="rect" id="node2" href="$classabscodes_1_1registry_1_1_registry_key.html#ace602a07caa8587f2c1820e48240e377" title="Ensure the key is writable. " alt="" coords="247,5,452,47"/>
+<area shape="rect" id="node4" href="$classabscodes_1_1registry_1_1_registry_key.html#adc9c33ab7e703b9440f1c9bd192b88f1" title="Is the wrapped HKEY handle valid? " alt="" coords="772,35,920,76"/>
+<area shape="rect" id="node5" href="$classabscodes_1_1registry_1_1_registry_key.html#aded37a07dc686a1e1f74074534134d4a" title="Initialize an empty RegistryKey. " alt="" coords="259,123,439,164"/>
 <area shape="rect" id="node3" href="$classabscodes_1_1registry_1_1_registry_key.html#af3e6f3d4fb489e5b8253fbed77a14e87" title="Ensure the key is not closed. " alt="" coords="500,5,724,47"/>
-<area shape="rect" id="node5" href="$classabscodes_1_1registry_1_1_registry_key.html#ad798c075fb7b020fa88c87fd7615df58" title="Fixup multiple slashes to a single slash. " alt="" coords="525,71,699,112"/>
 </map>
