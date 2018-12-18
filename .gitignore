@@ -438,3 +438,5 @@ ASALocalRun/
 .localhistory/
 
 # End of https://www.gitignore.io/api/windows,linux,macos,visualstudio,c++
+
+.url/
