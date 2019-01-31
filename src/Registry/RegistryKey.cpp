@@ -199,6 +199,10 @@ namespace registry {
     return RegistryKey(*this, hKey, _keyName + '\\' + subkey);
   }
 
+  RegistryKey RegistryKey::OpenSubKey(std::string subkey) {
+    return OpenSubKey(subkey, this->GetView(), this->GetAccessRights(), RegistryOption::None);
+  }
+
   RegistryKey RegistryKey::OpenSubKey(std::string subkey, RegistryAccessRights desiredAccess) {
     return OpenSubKey(subkey, this->GetView(), desiredAccess, RegistryOption::None);
   }

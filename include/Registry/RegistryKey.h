@@ -110,11 +110,11 @@ namespace registry {
     ///
     std::string GetName() const;
 
-	///
+    ///
     size_t GetSubKeyCount();
 
-	///
-	size_t GetValueCount();
+    ///
+    size_t GetValueCount();
 
     //
     // Operations
@@ -172,11 +172,20 @@ namespace registry {
     /// Open a subkey. Will throw an exception if the subkey doesn't exist
     ///
     /// @param subkey Name or path to subkey to create or open.
+    ///
+    /// @exception todo.
+    ///
+    RegistryKey OpenSubKey(std::string subkey);
+
+    ///
+    /// Open a subkey. Will throw an exception if the subkey doesn't exist
+    ///
+    /// @param subkey Name or path to subkey to create or open.
     /// @param desiredAccess Access rights, default to all access.
     ///
     /// @exception todo.
     ///
-    RegistryKey OpenSubKey(std::string subkey, RegistryAccessRights desiredAccess = RegistryAccessRights::Read);
+    RegistryKey OpenSubKey(std::string subkey, RegistryAccessRights desiredAccess);
 
     ///
     /// Open a subkey. Will throw an exception if the subkey doesn't exist
@@ -291,7 +300,7 @@ namespace registry {
     /// Return the DWORD type ID for the input registry value
     DWORD QueryValueType(const std::string& valueName);
 
-	///
+    ///
     void QueryInfoKey(DWORD& subKeys, DWORD& values, FILETIME& lastWriteTime);
 
     /// Enumerate the subkeys of the registry key, using RegEnumKeyEx
@@ -301,20 +310,20 @@ namespace registry {
     /// Returns a vector of pairs: In each pair, the wstring is the value name,
     /// the DWORD is the value type.
     std::vector<std::pair<std::string, RegistryValueType>> EnumValues();
-	
+
 
     //
     // Reflection Operations
     //
 
-	///
-	void EnableReflectionKey();
+    ///
+    void EnableReflectionKey();
 
-	///
-	void DisableReflectionKey();
+    ///
+    void DisableReflectionKey();
 
-	///
-	bool QueryReflectionKey();
+    ///
+    bool QueryReflectionKey();
 
     //
     // Internal Operations
