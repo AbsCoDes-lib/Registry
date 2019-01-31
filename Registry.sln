@@ -12,6 +12,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RegistryTests", "tests\Regi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Commons", "..\Commons\Commons.vcxproj", "{A8E4053E-C063-4C04-B2C7-15C07987C3F3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalLibs", "ExternalLibs", "{26E6B716-EED5-4512-A049-4A33F9CC1162}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		debug_shared|x64 = debug_shared|x64
@@ -75,6 +77,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A8E4053E-C063-4C04-B2C7-15C07987C3F3} = {26E6B716-EED5-4512-A049-4A33F9CC1162}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0B4AE72D-9AD6-402B-A8C4-998A6BD874A1}

@@ -1048,7 +1048,7 @@ namespace registry {
 
   void RegistryKey::ValidateKeyName(std::string& keyName) {
     FixupName(keyName);
-    commons::string::InPlace::trim(keyName);
+    commons::string::InPlace::ltrim(keyName);
 
     // check keyname
     if(keyName.empty()) {
