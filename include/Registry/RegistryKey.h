@@ -74,8 +74,7 @@ namespace registry {
     /// Non copyable
     RegistryKey& operator=(const RegistryKey&) = delete;
 
-
-    // Safely close the wrapped key handle (if any)
+	    // Safely close the wrapped key handle (if any)
     ~RegistryKey() noexcept;
 
    private:
@@ -146,15 +145,25 @@ namespace registry {
     /// Note: There's also a non-member swap overload
     void SwapWith(RegistryKey& other) noexcept;
 
-    ///
-    /// Creates a new subkey, or opens an existing one.
-    ///
-    /// @param subkey Name or path to subkey to create or open.
-    /// @param desiredAccess Access rights, default to all access.
-    ///
-    /// @exception todo.
-    ///
-    RegistryKey CreateSubKey(std::string subkey, RegistryAccessRights desiredAccess = RegistryAccessRights::AllAccess);
+	///
+	/// Creates a new subkey, or opens an existing one.
+	///
+	/// @param subkey Name or path to subkey to create or open.
+	/// @param desiredAccess Access rights, default to all access.
+	///
+	/// @exception todo.
+	///
+	RegistryKey CreateSubKey(std::string subkey);
+
+	///
+	/// Creates a new subkey, or opens an existing one.
+	///
+	/// @param subkey Name or path to subkey to create or open.
+	/// @param desiredAccess Access rights, default to all access.
+	///
+	/// @exception todo.
+	///
+	RegistryKey CreateSubKey(std::string subkey, RegistryAccessRights desiredAccess);
 
     ///
     /// Creates a new subkey, or opens an existing one.

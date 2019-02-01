@@ -161,8 +161,12 @@ namespace registry {
     std::swap(_hKey, other._hKey);
   }
 
+  RegistryKey RegistryKey::CreateSubKey(std::string subkey) {
+	  return CreateSubKey(subkey, this->GetView(), RegistryAccessRights::AllAccess, RegistryOption::None);
+  }
+
   RegistryKey RegistryKey::CreateSubKey(std::string subkey, RegistryAccessRights desiredAccess) {
-    return CreateSubKey(subkey, this->GetView(), desiredAccess, RegistryOption::None);
+	  return CreateSubKey(subkey, this->GetView(), desiredAccess, RegistryOption::None);
   }
 
   RegistryKey RegistryKey::CreateSubKey(std::string subkey, RegistryView view, RegistryAccessRights desiredAccess, RegistryOption option) {
