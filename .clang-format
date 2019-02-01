@@ -1,24 +1,21 @@
 ﻿
-
-DisableFormat: false
-
 # Common settings
 BasedOnStyle: LLVM
-TabWidth: 2
-IndentWidth: 2
+TabWidth: 4
+IndentWidth: 4
 UseTab: Never
 ColumnLimit: 160
-
 
 
 ---
 Language: Cpp
 Standard: Cpp11
+DisableFormat: false
 
-AccessModifierOffset: -1
+AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
-AlignConsecutiveAssignments: true
-AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
 AlignEscapedNewlinesLeft: true
 AlignOperands: true
 AlignTrailingComments: false
@@ -39,7 +36,7 @@ BinPackParameters: true
 BreakBeforeBraces: Custom
 # Control of individual brace wrapping cases
 BraceWrapping:
-  AfterClass: false
+  AfterClass: true
   AfterControlStatement: false
   AfterEnum : false
   AfterFunction : false
@@ -74,19 +71,21 @@ ForEachMacros:
   - foreach
   - Q_FOREACH
   - BOOST_FOREACH
+  - TEST_CLASS
+  - TEST_METHOD
 IncludeBlocks: Preserve
 IncludeCategories:
   - Regex:           'stdafx.h|.*api.h'
-    Priority:        1
+    Priority:        -1
   - Regex:           '^<.*[^\.h]>'
     Priority:        2
   - Regex:           '^<.*\.h>'
     Priority:        3
-  - Regex:           '^<.*'
+  - Regex:           '^<.*>'
     Priority:        4
   - Regex:           '.*'
     Priority:        5
-IncludeIsMainRegex: '$'
+IncludeIsMainRegex: '(Test)?$'
 IndentCaseLabels: true
 IndentPPDirectives: AfterHash
 IndentWrappedFunctionNames: true

@@ -18,30 +18,30 @@ namespace abscodes {
 namespace registry {
 
 
-  ///
-  /// Specifies which registry view to target on a 64-bit operating system.
-  ///
-  enum class RegistryView {
-    Default    = 0,
-    Registry64 = static_cast<int>(KEY_WOW64_64KEY),
-    Registry32 = static_cast<int>(KEY_WOW64_32KEY),
-  };
+    ///
+    /// Specifies which registry view to target on a 64-bit operating system.
+    ///
+    enum class RegistryView {
+        Default = 0,
+        Registry64 = static_cast<int>(KEY_WOW64_64KEY),
+        Registry32 = static_cast<int>(KEY_WOW64_32KEY),
+    };
 
 
-  namespace View {
+    namespace View {
 
-    static int Handle(RegistryView view) {
-      {
-        switch(view) {
-          case RegistryView::Default: return 0;
-          case RegistryView::Registry64: return KEY_WOW64_64KEY;
-          case RegistryView::Registry32: return KEY_WOW64_32KEY;
-          default: throw std::invalid_argument("Unsupported registry view.");
+        static int Handle(RegistryView view) {
+            {
+                switch(view) {
+                    case RegistryView::Default: return 0;
+                    case RegistryView::Registry64: return KEY_WOW64_64KEY;
+                    case RegistryView::Registry32: return KEY_WOW64_32KEY;
+                    default: throw std::invalid_argument("Unsupported registry view.");
+                }
+            }
         }
-      }
-    }
 
-  } // namespace AccessRights
+    } // namespace View
 
 
 } // namespace registry

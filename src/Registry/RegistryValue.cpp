@@ -16,150 +16,150 @@
 namespace abscodes {
 namespace registry {
 
-  RegistryValue::RegistryValue(RegistryValueType type)
-    : _type(type) {}
+    RegistryValue::RegistryValue(RegistryValueType type)
+      : _type(type) {}
 
-  RegistryValueType RegistryValue::GetType() const {
-    return _type;
-  }
-
-  void RegistryValue::Reset(RegistryValueType type) {
-    ResetValues();
-    _type = type;
-  }
-
-  bool RegistryValue::IsEmpty() const {
-    return _type == RegistryValueType::None;
-  }
-
-  void RegistryValue::ResetValues() {
-    _dword = 0;
-    _qword = 0;
-    _string.clear();
-    _expandString.clear();
-    _multiString.clear();
-    _binary.clear();
-  }
-
-  DWORD RegistryValue::DWord() const {
-
-    _ASSERTE(_type == RegistryValueType::DWord);
-    if(_type != RegistryValueType::DWord) {
-      throw Exceptions::RegistryException("RegistryValue::DWord() called on a non-DWORD registry value.");
+    RegistryValueType RegistryValue::GetType() const {
+        return _type;
     }
 
-    return _dword;
-  }
-
-  ULONGLONG RegistryValue::QWord() const {
-
-    _ASSERTE(_type == RegistryValueType::QWord);
-    if(_type != RegistryValueType::QWord) {
-      throw Exceptions::RegistryException("RegistryValue::QWord() called on a non-QWORD registry value.");
+    void RegistryValue::Reset(RegistryValueType type) {
+        ResetValues();
+        _type = type;
     }
 
-    return _qword;
-  }
-
-  const std::string& RegistryValue::String() const {
-
-    _ASSERTE(_type == RegistryValueType::String);
-    if(_type != RegistryValueType::String) {
-      throw Exceptions::RegistryException("RegistryValue::String() called on a non-REG_SZ registry value.");
+    bool RegistryValue::IsEmpty() const {
+        return _type == RegistryValueType::None;
     }
 
-    return _string;
-  }
-
-  const std::string& RegistryValue::ExpandString() const {
-
-    _ASSERTE(_type == RegistryValueType::ExpandString);
-    if(_type != RegistryValueType::ExpandString) {
-      throw Exceptions::RegistryException("RegistryValue::ExpandString() called on a non-REG_EXPAND_SZ registry value.");
+    void RegistryValue::ResetValues() {
+        _dword = 0;
+        _qword = 0;
+        _string.clear();
+        _expandString.clear();
+        _multiString.clear();
+        _binary.clear();
     }
 
-    return _expandString;
-  }
+    DWORD RegistryValue::DWord() const {
 
-  const std::vector<std::string>& RegistryValue::MultiString() const {
+        _ASSERTE(_type == RegistryValueType::DWord);
+        if(_type != RegistryValueType::DWord) {
+            throw Exceptions::RegistryException("RegistryValue::DWord() called on a non-DWORD registry value.");
+        }
 
-    _ASSERTE(_type == RegistryValueType::MultiString);
-    if(_type != RegistryValueType::MultiString) {
-      throw Exceptions::RegistryException("RegistryValue::MultiString() called on a non-REG_MULTI_SZ  registry value.");
+        return _dword;
     }
 
-    return _multiString;
-  }
+    ULONGLONG RegistryValue::QWord() const {
 
-  const std::vector<BYTE>& RegistryValue::Binary() const {
+        _ASSERTE(_type == RegistryValueType::QWord);
+        if(_type != RegistryValueType::QWord) {
+            throw Exceptions::RegistryException("RegistryValue::QWord() called on a non-QWORD registry value.");
+        }
 
-    _ASSERTE(_type == RegistryValueType::Binary);
-    if(_type != RegistryValueType::Binary) {
-      throw Exceptions::RegistryException("RegistryValue::Binary() called on a non-REG_BINARY   registry value.");
+        return _qword;
     }
 
-    return _binary;
-  }
+    const std::string& RegistryValue::String() const {
 
-  DWORD& RegistryValue::DWord() {
+        _ASSERTE(_type == RegistryValueType::String);
+        if(_type != RegistryValueType::String) {
+            throw Exceptions::RegistryException("RegistryValue::String() called on a non-REG_SZ registry value.");
+        }
 
-    _ASSERTE(_type == RegistryValueType::DWord);
-    if(_type != RegistryValueType::DWord) {
-      throw Exceptions::RegistryException("RegistryValue::DWord() called on a non-DWORD registry value.");
+        return _string;
     }
 
-    return _dword;
-  }
+    const std::string& RegistryValue::ExpandString() const {
 
-  ULONGLONG& RegistryValue::QWord() {
+        _ASSERTE(_type == RegistryValueType::ExpandString);
+        if(_type != RegistryValueType::ExpandString) {
+            throw Exceptions::RegistryException("RegistryValue::ExpandString() called on a non-REG_EXPAND_SZ registry value.");
+        }
 
-    _ASSERTE(_type == RegistryValueType::QWord);
-    if(_type != RegistryValueType::QWord) {
-      throw Exceptions::RegistryException("RegistryValue::QWord() called on a non-QWORD registry value.");
+        return _expandString;
     }
 
-    return _qword;
-  }
+    const std::vector<std::string>& RegistryValue::MultiString() const {
 
-  std::string& RegistryValue::String() {
+        _ASSERTE(_type == RegistryValueType::MultiString);
+        if(_type != RegistryValueType::MultiString) {
+            throw Exceptions::RegistryException("RegistryValue::MultiString() called on a non-REG_MULTI_SZ  registry value.");
+        }
 
-    _ASSERTE(_type == RegistryValueType::String);
-    if(_type != RegistryValueType::String) {
-      throw Exceptions::RegistryException("RegistryValue::String() called on a non-REG_SZ registry value.");
+        return _multiString;
     }
 
-    return _string;
-  }
+    const std::vector<BYTE>& RegistryValue::Binary() const {
 
-  std::string& RegistryValue::ExpandString() {
+        _ASSERTE(_type == RegistryValueType::Binary);
+        if(_type != RegistryValueType::Binary) {
+            throw Exceptions::RegistryException("RegistryValue::Binary() called on a non-REG_BINARY   registry value.");
+        }
 
-    _ASSERTE(_type == RegistryValueType::ExpandString);
-    if(_type != RegistryValueType::ExpandString) {
-      throw Exceptions::RegistryException("RegistryValue::ExpandString() called on a non-REG_EXPAND_SZ registry value.");
+        return _binary;
     }
 
-    return _expandString;
-  }
+    DWORD& RegistryValue::DWord() {
 
-  std::vector<std::string>& RegistryValue::MultiString() {
+        _ASSERTE(_type == RegistryValueType::DWord);
+        if(_type != RegistryValueType::DWord) {
+            throw Exceptions::RegistryException("RegistryValue::DWord() called on a non-DWORD registry value.");
+        }
 
-    _ASSERTE(_type == RegistryValueType::MultiString);
-    if(_type != RegistryValueType::MultiString) {
-      throw Exceptions::RegistryException("RegistryValue::MultiString() called on a non-REG_MULTI_SZ  registry value.");
+        return _dword;
     }
 
-    return _multiString;
-  }
+    ULONGLONG& RegistryValue::QWord() {
 
-  std::vector<BYTE>& RegistryValue::Binary() {
+        _ASSERTE(_type == RegistryValueType::QWord);
+        if(_type != RegistryValueType::QWord) {
+            throw Exceptions::RegistryException("RegistryValue::QWord() called on a non-QWORD registry value.");
+        }
 
-    _ASSERTE(_type == RegistryValueType::Binary);
-    if(_type != RegistryValueType::Binary) {
-      throw Exceptions::RegistryException("RegistryValue::Binary() called on a non-REG_BINARY   registry value.");
+        return _qword;
     }
 
-    return _binary;
-  }
+    std::string& RegistryValue::String() {
+
+        _ASSERTE(_type == RegistryValueType::String);
+        if(_type != RegistryValueType::String) {
+            throw Exceptions::RegistryException("RegistryValue::String() called on a non-REG_SZ registry value.");
+        }
+
+        return _string;
+    }
+
+    std::string& RegistryValue::ExpandString() {
+
+        _ASSERTE(_type == RegistryValueType::ExpandString);
+        if(_type != RegistryValueType::ExpandString) {
+            throw Exceptions::RegistryException("RegistryValue::ExpandString() called on a non-REG_EXPAND_SZ registry value.");
+        }
+
+        return _expandString;
+    }
+
+    std::vector<std::string>& RegistryValue::MultiString() {
+
+        _ASSERTE(_type == RegistryValueType::MultiString);
+        if(_type != RegistryValueType::MultiString) {
+            throw Exceptions::RegistryException("RegistryValue::MultiString() called on a non-REG_MULTI_SZ  registry value.");
+        }
+
+        return _multiString;
+    }
+
+    std::vector<BYTE>& RegistryValue::Binary() {
+
+        _ASSERTE(_type == RegistryValueType::Binary);
+        if(_type != RegistryValueType::Binary) {
+            throw Exceptions::RegistryException("RegistryValue::Binary() called on a non-REG_BINARY   registry value.");
+        }
+
+        return _binary;
+    }
 
 } // namespace registry
 } // namespace abscodes

@@ -15,45 +15,45 @@
 
 namespace abscodes {
 namespace registry {
-  namespace Exceptions {
+    namespace Exceptions {
 
 
-    RegistryException::RegistryException(const std::string& keyName, const std::string& message)
-      : ErrorCodeException(message, 0L)
-      , _keyName(keyName.c_str()) {}
+        RegistryException::RegistryException(const std::string& keyName, const std::string& message)
+          : ErrorCodeException(message, 0L)
+          , _keyName(keyName.c_str()) {}
 
-    RegistryException::RegistryException(const std::string& keyName, const std::string& message, LONG errorCode)
-      : ErrorCodeException(message, errorCode)
-      , _keyName(keyName.c_str()) {}
+        RegistryException::RegistryException(const std::string& keyName, const std::string& message, LONG errorCode)
+          : ErrorCodeException(message, errorCode)
+          , _keyName(keyName.c_str()) {}
 
-    RegistryException::RegistryException(const std::string& message, LONG errorCode)
-      : ErrorCodeException(message, errorCode)
-      , _keyName("") {}
+        RegistryException::RegistryException(const std::string& message, LONG errorCode)
+          : ErrorCodeException(message, errorCode)
+          , _keyName("") {}
 
-    RegistryException::RegistryException(const std::string& message)
-      : ErrorCodeException(message, 0L)
-      , _keyName("") {}
+        RegistryException::RegistryException(const std::string& message)
+          : ErrorCodeException(message, 0L)
+          , _keyName("") {}
 
-    RegistryException::RegistryException(const char* keyName, const char* message)
-      : ErrorCodeException(message, 0L)
-      , _keyName(keyName) {}
+        RegistryException::RegistryException(const char* keyName, const char* message)
+          : ErrorCodeException(message, 0L)
+          , _keyName(keyName) {}
 
-    RegistryException::RegistryException(const char* keyName, const char* message, LONG errorCode)
-      : ErrorCodeException(message, errorCode)
-      , _keyName(keyName) {}
+        RegistryException::RegistryException(const char* keyName, const char* message, LONG errorCode)
+          : ErrorCodeException(message, errorCode)
+          , _keyName(keyName) {}
 
-    RegistryException::RegistryException(const char* message, LONG errorCode)
-      : ErrorCodeException(message, errorCode)
-      , _keyName("") {}
+        RegistryException::RegistryException(const char* message, LONG errorCode)
+          : ErrorCodeException(message, errorCode)
+          , _keyName("") {}
 
-    RegistryException::RegistryException(const char* message)
-      : ErrorCodeException(message, 0L)
-      , _keyName("") {}
+        RegistryException::RegistryException(const char* message)
+          : ErrorCodeException(message, 0L)
+          , _keyName("") {}
 
-    char const* RegistryException::ErrorKeyName() const noexcept {
-      return _keyName;
-    }
+        char const* RegistryException::ErrorKeyName() const noexcept {
+            return _keyName;
+        }
 
-  } // namespace Exceptions
+    } // namespace Exceptions
 } // namespace registry
 } // namespace abscodes

@@ -19,31 +19,31 @@ namespace abscodes {
 namespace registry {
 
 
-  ///
-  /// The RegistryOptions enumeration defines the set of supported registry data types.
-  ///
-  /// Use the RegistryKey.GetValueKind method to determine the data type of a registry key value before retrieving
-  ///	the value. When you set a registry key value, use the SetValue method to specify the registry data type explicitly.
-  ///
-  enum class RegistryOption {
-    None     = 0,
-    Volatile = 1,
-  };
+    ///
+    /// The RegistryOptions enumeration defines the set of supported registry data types.
+    ///
+    /// Use the RegistryKey.GetValueKind method to determine the data type of a registry key value before retrieving
+    ///	the value. When you set a registry key value, use the SetValue method to specify the registry data type explicitly.
+    ///
+    enum class RegistryOption {
+        None = 0,
+        Volatile = 1,
+    };
 
 
-  namespace Option {
+    namespace Option {
 
-    static int Handle(RegistryOption option) {
-      {
-        switch(option) {
-          case RegistryOption::None: return 0;
-          case RegistryOption::Volatile: return 1;
-          default: throw std::invalid_argument("Unsupported registry option.");
+        static int Handle(RegistryOption option) {
+            {
+                switch(option) {
+                    case RegistryOption::None: return 0;
+                    case RegistryOption::Volatile: return 1;
+                    default: throw std::invalid_argument("Unsupported registry option.");
+                }
+            }
         }
-      }
-    }
 
-  } // namespace Option
+    } // namespace Option
 
 
 } // namespace registry

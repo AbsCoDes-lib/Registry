@@ -26,79 +26,80 @@
 namespace abscodes {
 namespace registry {
 
-  ///
-  /// "Variant-style" Registry value.
-  ///
-  class REGISTRY_API RegistryValue {
-
-   public:
     ///
-    /// Initialize an empty value (REG_NONE).
+    /// "Variant-style" Registry value.
     ///
-    RegistryValue() = default;
+    class REGISTRY_API RegistryValue
+    {
 
-    /// Initialize with the given value kind.
-    /// Caller can use accessor corresponding to the given type (e.g. String() for REG_SZ)
-    /// to set the desired value.
-    explicit RegistryValue(RegistryValueType type);
+    public:
+        ///
+        /// Initialize an empty value (REG_NONE).
+        ///
+        RegistryValue() = default;
 
-    /// Registry value type (e.g. REG_SZ) associated to current value.
-    RegistryValueType GetType() const;
+        /// Initialize with the given value kind.
+        /// Caller can use accessor corresponding to the given type (e.g. String() for REG_SZ)
+        /// to set the desired value.
+        explicit RegistryValue(RegistryValueType type);
 
-    /// Reset current "variant-style" value to the specified type.
-    /// Note that previous values are cleared.
-    /// Caller can use accessor corresponding to the given type (e.g. String() for REG_SZ)
-    /// to set the desired value.
-    void Reset(RegistryValueType type = RegistryValueType::None);
+        /// Registry value type (e.g. REG_SZ) associated to current value.
+        RegistryValueType GetType() const;
 
-    /// Is it REG_NONE?
-    /// Note: "empty" (i.e. REG_NONE) can be used to indicate error conditions as well
-    bool IsEmpty() const;
+        /// Reset current "variant-style" value to the specified type.
+        /// Note that previous values are cleared.
+        /// Caller can use accessor corresponding to the given type (e.g. String() for REG_SZ)
+        /// to set the desired value.
+        void Reset(RegistryValueType type = RegistryValueType::None);
 
-
-    //
-    // Getters
-    //
-
-    DWORD                           DWord() const;
-    ULONGLONG                       QWord() const;
-    const std::string&              String() const;
-    const std::string&              ExpandString() const;
-    const std::vector<std::string>& MultiString() const;
-    const std::vector<BYTE>&        Binary() const;
+        /// Is it REG_NONE?
+        /// Note: "empty" (i.e. REG_NONE) can be used to indicate error conditions as well
+        bool IsEmpty() const;
 
 
-    //
-    // Setters
-    //
+        //
+        // Getters
+        //
 
-    DWORD&                    DWord();
-    ULONGLONG&                QWord();
-    std::string&              String();
-    std::string&              ExpandString();
-    std::vector<std::string>& MultiString();
-    std::vector<BYTE>&        Binary();
+        DWORD DWord() const;
+        ULONGLONG QWord() const;
+        const std::string& String() const;
+        const std::string& ExpandString() const;
+        const std::vector<std::string>& MultiString() const;
+        const std::vector<BYTE>& Binary() const;
 
-   private:
-    /// Registry value type
-    RegistryValueType _type = RegistryValueType::None;
 
-    /// Store REG_DWORD value
-    DWORD _dword = 0;
-    /// Store REG_QWORD value
-    ULONGLONG _qword = 0;
-    /// Store REG_SZ value
-    std::string _string;
-    /// Store REG_EXPAND_SZ value
-    std::string _expandString;
-    /// Store REG_MULTI_SZ value
-    std::vector<std::string> _multiString;
-    /// Store REG_BINARY value
-    std::vector<BYTE> _binary;
+        //
+        // Setters
+        //
 
-    /// Clear all the data members
-    void ResetValues();
-  };
+        DWORD& DWord();
+        ULONGLONG& QWord();
+        std::string& String();
+        std::string& ExpandString();
+        std::vector<std::string>& MultiString();
+        std::vector<BYTE>& Binary();
+
+    private:
+        /// Registry value type
+        RegistryValueType _type = RegistryValueType::None;
+
+        /// Store REG_DWORD value
+        DWORD _dword = 0;
+        /// Store REG_QWORD value
+        ULONGLONG _qword = 0;
+        /// Store REG_SZ value
+        std::string _string;
+        /// Store REG_EXPAND_SZ value
+        std::string _expandString;
+        /// Store REG_MULTI_SZ value
+        std::vector<std::string> _multiString;
+        /// Store REG_BINARY value
+        std::vector<BYTE> _binary;
+
+        /// Clear all the data members
+        void ResetValues();
+    };
 
 
 } // namespace registry

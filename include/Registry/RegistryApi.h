@@ -14,7 +14,7 @@
 #define REGISTRY_API_INCLUDED
 
 #if _MSC_VER > 1000
-#  pragma once
+#    pragma once
 #endif // _MSC_VER > 1000
 
 
@@ -28,14 +28,14 @@
 // Ensure that Visual Studio is used
 //
 #if !defined(_MSC_VER)
-#  error "This set of tools only works with Visual Studio"
+#    error "This set of tools only works with Visual Studio"
 #endif
 
 
 // Ensure that we build with the multithreaded
 // versions of the runtime libraries
 #if defined(_MSC_VER) && !defined(_MT)
-#  error Must compile with /MD, /MDd, /MT or /MTd
+#    error Must compile with /MD, /MDd, /MT or /MTd
 #endif
 
 
@@ -43,9 +43,9 @@
 // Ensure that REGISTRY_DLL is default unless REGISTRY_STATIC is defined
 //
 #if defined(_WIN32) && defined(_DLL)
-#  if !defined(REGISTRY_DLL) && !defined(REGISTRY_STATIC)
-#    define REGISTRY_DLL
-#  endif
+#    if !defined(REGISTRY_DLL) && !defined(REGISTRY_STATIC)
+#        define REGISTRY_DLL
+#    endif
 #endif
 
 
@@ -58,16 +58,16 @@
 // defined with this macro as being exported.
 //
 #if defined(_WIN32) && defined(REGISTRY_DLL)
-#  ifdef REGISTRY_EXPORTS
-#    define REGISTRY_API __declspec(dllexport)
-#  else
-#    define REGISTRY_API __declspec(dllimport)
-#  endif
+#    ifdef REGISTRY_EXPORTS
+#        define REGISTRY_API __declspec(dllexport)
+#    else
+#        define REGISTRY_API __declspec(dllimport)
+#    endif
 #endif
 
 
 #if !defined(REGISTRY_API)
-#  define REGISTRY_API
+#    define REGISTRY_API
 #endif
 
 
@@ -75,42 +75,42 @@
 // Automatically link Registry library.
 //
 #if defined(_MSC_VER)
-#  if defined _WIN64
-#    define X64_SUFFIX "_x64"
-#  else
-#    define X64_SUFFIX ""
-#  endif
+#    if defined _WIN64
+#        define X64_SUFFIX "_x64"
+#    else
+#        define X64_SUFFIX ""
+#    endif
 
-#  if defined(REGISTRY_DLL)
-#    if defined(_DEBUG)
-#      define REGISTRY_LIB_SUFFIX X64_SUFFIX "_d"
+#    if defined(REGISTRY_DLL)
+#        if defined(_DEBUG)
+#            define REGISTRY_LIB_SUFFIX X64_SUFFIX "_d"
+#        else
+#            define REGISTRY_LIB_SUFFIX X64_SUFFIX ""
+#        endif
+#    elif defined(_DLL)
+#        if defined(_DEBUG)
+#            define REGISTRY_LIB_SUFFIX X64_SUFFIX "_mdd"
+#        else
+#            define REGISTRY_LIB_SUFFIX X64_SUFFIX "_md"
+#        endif
 #    else
-#      define REGISTRY_LIB_SUFFIX X64_SUFFIX ""
+#        if defined(_DEBUG)
+#            define REGISTRY_LIB_SUFFIX X64_SUFFIX "_mtd"
+#        else
+#            define REGISTRY_LIB_SUFFIX X64_SUFFIX "_mt"
+#        endif
 #    endif
-#  elif defined(_DLL)
-#    if defined(_DEBUG)
-#      define REGISTRY_LIB_SUFFIX X64_SUFFIX "_mdd"
-#    else
-#      define REGISTRY_LIB_SUFFIX X64_SUFFIX "_md"
-#    endif
-#  else
-#    if defined(_DEBUG)
-#      define REGISTRY_LIB_SUFFIX X64_SUFFIX "_mtd"
-#    else
-#      define REGISTRY_LIB_SUFFIX X64_SUFFIX "_mt"
-#    endif
-#  endif
 
-#  if !defined(REGISTRY_NO_AUTOLIB) && !defined(REGISTRY_EXPORTS)
-#    pragma comment(lib, "Registry" REGISTRY_LIB_SUFFIX ".lib")
-#    pragma message("Automatically linking with Registry" REGISTRY_LIB_SUFFIX ".lib")
-#  endif
+#    if !defined(REGISTRY_NO_AUTOLIB) && !defined(REGISTRY_EXPORTS)
+#        pragma comment(lib, "Registry" REGISTRY_LIB_SUFFIX ".lib")
+#        pragma message("Automatically linking with Registry" REGISTRY_LIB_SUFFIX ".lib")
+#    endif
 #endif
 
 
 // Reduce bloat
 #if defined(_WIN32) && !defined(WIN32_LEAN_AND_MEAN)
-#  define WIN32_LEAN_AND_MEAN
+#    define WIN32_LEAN_AND_MEAN
 #endif
 
 

@@ -19,48 +19,49 @@
 
 namespace abscodes {
 namespace registry {
-  namespace Exceptions {
+    namespace Exceptions {
 
 
-    ///
-    class REGISTRY_API RegistryException : public abscodes::commons::exceptions::ErrorCodeException {
+        ///
+        class REGISTRY_API RegistryException : public abscodes::commons::exceptions::ErrorCodeException
+        {
 
-     public:
-      /// Construct a RegistryException.
-      explicit RegistryException(const std::string& keyName, const std::string& message);
+        public:
+            /// Construct a RegistryException.
+            explicit RegistryException(const std::string& keyName, const std::string& message);
 
-      /// Construct a RegistryException.
-      explicit RegistryException(const std::string& keyName, const std::string& message, LONG errorCode);
+            /// Construct a RegistryException.
+            explicit RegistryException(const std::string& keyName, const std::string& message, LONG errorCode);
 
-      /// Construct a RegistryException.
-      explicit RegistryException(const std::string& message, LONG errorCode);
+            /// Construct a RegistryException.
+            explicit RegistryException(const std::string& message, LONG errorCode);
 
-      /// Construct a RegistryException.
-      explicit RegistryException(const std::string& message);
+            /// Construct a RegistryException.
+            explicit RegistryException(const std::string& message);
 
-      /// Construct a RegistryException.
-      explicit RegistryException(const char* keyName, const char* message);
+            /// Construct a RegistryException.
+            explicit RegistryException(const char* keyName, const char* message);
 
-      /// Construct a RegistryException.
-      explicit RegistryException(const char* keyName, const char* message, LONG errorCode);
+            /// Construct a RegistryException.
+            explicit RegistryException(const char* keyName, const char* message, LONG errorCode);
 
-      /// Construct a RegistryException.
-      explicit RegistryException(const char* message, LONG errorCode);
+            /// Construct a RegistryException.
+            explicit RegistryException(const char* message, LONG errorCode);
 
-      /// Construct a RegistryException.
-      explicit RegistryException(const char* message);
+            /// Construct a RegistryException.
+            explicit RegistryException(const char* message);
 
-     public:
-      /// Get the error key name
-      char const* ErrorKeyName() const noexcept;
+        public:
+            /// Get the error key name
+            char const* ErrorKeyName() const noexcept;
 
-     private:
-      /// Error code, as returned by Windows registry APIs
-      char const* _keyName;
-    };
+        private:
+            /// Error code, as returned by Windows registry APIs
+            char const* _keyName;
+        };
 
 
-  } // namespace Exceptions
+    } // namespace Exceptions
 } // namespace registry
 } // namespace abscodes
 
