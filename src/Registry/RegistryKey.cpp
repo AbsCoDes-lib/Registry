@@ -181,7 +181,7 @@ namespace registry {
     std::wstring wsubkey = commons::utf8convert::Utf8ToUtf16(subkey);
 
     HKEY       hKey    = nullptr;
-    const auto retCode = ::RegCreateKeyEx(_hKey, //
+    const auto retCode = ::RegCreateKeyExW(_hKey, //
                                           wsubkey.c_str(), //
                                           0, // reserved
                                           REG_NONE, // user-defined class type parameter not supported
@@ -221,7 +221,7 @@ namespace registry {
     std::wstring wsubkey = commons::utf8convert::Utf8ToUtf16(subkey);
 
     HKEY       hKey    = nullptr;
-    const auto retCode = ::RegOpenKeyEx(_hKey, //
+    const auto retCode = ::RegOpenKeyExW(_hKey, //
                                         wsubkey.c_str(), //
                                         (DWORD)option, //
                                         (DWORD)desiredAccess | (DWORD)view, //
@@ -253,7 +253,7 @@ namespace registry {
 
     std::wstring wsubkey = commons::utf8convert::Utf8ToUtf16(subkey);
 
-    const auto retCode = ::RegDeleteKeyEx(_hKey, //
+    const auto retCode = ::RegDeleteKeyExW(_hKey, //
                                           wsubkey.c_str(), //
                                           (REGSAM)desiredAccess | (DWORD)view, //
                                           0);
@@ -304,7 +304,7 @@ namespace registry {
 
     const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
 
-    const auto retCode = ::RegDeleteValue(_hKey, //
+    const auto retCode = ::RegDeleteValueW(_hKey, //
                                           sValueName.c_str() //
     );
     if(retCode != ERROR_SUCCESS) {
@@ -352,7 +352,7 @@ namespace registry {
     const DWORD        data       = value;
     const DWORD        dataSize   = sizeof(data);
     const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
-    const auto         result     = ::RegSetValueEx(_hKey, //
+    const auto         result     = ::RegSetValueExW(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
                                         REG_DWORD, //
@@ -370,7 +370,7 @@ namespace registry {
     const ULONGLONG    data       = value;
     const DWORD        dataSize   = sizeof(data);
     const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
-    const auto         result     = ::RegSetValueEx(_hKey, //
+    const auto         result     = ::RegSetValueExW(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
                                         REG_QWORD, //
@@ -391,7 +391,7 @@ namespace registry {
     // Note that size is in *BYTES*, so we must scale by wchar_t.
     const DWORD dataSize = SafeSizeToDwordCast((sValue.size() + 1) * sizeof(wchar_t));
 
-    const auto result = ::RegSetValueEx(_hKey, //
+    const auto result = ::RegSetValueExW(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
                                         REG_SZ, //
@@ -412,7 +412,7 @@ namespace registry {
     // Note that size is in *BYTES*, so we must scale by wchar_t.
     const DWORD dataSize = SafeSizeToDwordCast((sValue.size() + 1) * sizeof(wchar_t));
 
-    const auto result = ::RegSetValueEx(_hKey, //
+    const auto result = ::RegSetValueExW(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
                                         REG_EXPAND_SZ, //
@@ -469,7 +469,7 @@ namespace registry {
     // Size is in *BYTES*
     const DWORD dataSize = SafeSizeToDwordCast(buffer.size() * sizeof(wchar_t));
 
-    const auto result = ::RegSetValueEx(_hKey, //
+    const auto result = ::RegSetValueExW(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
                                         REG_MULTI_SZ, //
@@ -488,7 +488,7 @@ namespace registry {
 
     const std::vector<BYTE>& data     = value;
     const DWORD              dataSize = SafeSizeToDwordCast(data.size());
-    const auto               result   = ::RegSetValueEx(_hKey, //
+    const auto               result   = ::RegSetValueExW(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
                                         REG_BINARY, //
@@ -504,7 +504,7 @@ namespace registry {
     _ASSERTE(IsValid());
 
     const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
-    const auto         result     = ::RegSetValueEx(_hKey, //
+    const auto         result     = ::RegSetValueExW(_hKey, //
                                         sValueName.c_str(), //
                                         0, // reserved
                                         REG_BINARY, //
@@ -546,7 +546,7 @@ namespace registry {
     DWORD dataSize = sizeof(data); // size of data, in bytes
 
     const DWORD flags   = RRF_RT_REG_DWORD;
-    const auto  retCode = ::RegGetValue(_hKey, //
+    const auto  retCode = ::RegGetValueW(_hKey, //
                                        nullptr, // no subkey
                                        sValueName.c_str(), //
                                        flags, //
@@ -571,7 +571,7 @@ namespace registry {
     DWORD     dataSize = sizeof(data); // size of data, in bytes
 
     const DWORD flags   = RRF_RT_REG_QWORD;
-    const auto  retCode = ::RegGetValue(_hKey, //
+    const auto  retCode = ::RegGetValueW(_hKey, //
                                        nullptr, // no subkey
                                        sValueName.c_str(), //
                                        flags, //
@@ -595,7 +595,7 @@ namespace registry {
     // Get the size of the result string
     DWORD       dataSize = 0; // size of data, in bytes
     const DWORD flags    = RRF_RT_REG_SZ;
-    auto        retCode  = ::RegGetValue(_hKey, //
+    auto        retCode  = ::RegGetValueW(_hKey, //
                                  nullptr, // no subkey
                                  sValueName.c_str(), //
                                  flags, //
@@ -614,7 +614,7 @@ namespace registry {
     result.resize(dataSize / sizeof(wchar_t));
 
     // Call RegGetValue for the second time to read the string's content
-    retCode = ::RegGetValue(_hKey, //
+    retCode = ::RegGetValueW(_hKey, //
                             nullptr, // no subkey
                             sValueName.c_str(), //
                             flags, //
@@ -646,7 +646,7 @@ namespace registry {
 
     // Get the size of the result string
     DWORD dataSize = 0; // size of data, in bytes
-    auto  retCode  = ::RegGetValue(_hKey, //
+    auto  retCode  = ::RegGetValueW(_hKey, //
                                  nullptr, // no subkey
                                  sValueName.c_str(), //
                                  flags, //
@@ -664,7 +664,7 @@ namespace registry {
     result.resize(dataSize / sizeof(wchar_t));
 
     // Call RegGetValue for the second time to read the string's content
-    retCode = ::RegGetValue(_hKey, //
+    retCode = ::RegGetValueW(_hKey, //
                             nullptr, // no subkey
                             sValueName.c_str(), //
                             flags, //
@@ -691,7 +691,7 @@ namespace registry {
 
     // Request the size of the multi-string, in bytes
     DWORD dataSize = 0;
-    auto  retCode  = ::RegGetValue(_hKey, //
+    auto  retCode  = ::RegGetValueW(_hKey, //
                                  nullptr, // no subkey
                                  sValueName.c_str(), //
                                  flags, //
@@ -709,7 +709,7 @@ namespace registry {
     data.resize(dataSize / sizeof(wchar_t));
 
     // Read the multi-string from the registry into the vector object
-    retCode = ::RegGetValue(_hKey, //
+    retCode = ::RegGetValueW(_hKey, //
                             nullptr, // no subkey
                             sValueName.c_str(), //
                             flags, //
@@ -753,7 +753,7 @@ namespace registry {
 
     // Get the size of the binary data
     DWORD dataSize = 0; // size of data, in bytes
-    auto  retCode  = ::RegGetValue(_hKey, //
+    auto  retCode  = ::RegGetValueW(_hKey, //
                                  nullptr, // no subkey
                                  sValueName.c_str(), //
                                  flags, //
@@ -768,7 +768,7 @@ namespace registry {
     std::vector<BYTE> data(dataSize);
 
     // Call RegGetValue for the second time to read the data content
-    retCode = ::RegGetValue(_hKey, //
+    retCode = ::RegGetValueW(_hKey, //
                             nullptr, // no subkey
                             sValueName.c_str(), //
                             flags, //
@@ -790,7 +790,7 @@ namespace registry {
 
     DWORD typeId {}; // will be returned by RegQueryValueEx
 
-    const auto retCode = ::RegQueryValueEx(_hKey, //
+    const auto retCode = ::RegQueryValueExW(_hKey, //
                                            sValueName.c_str(), //
                                            nullptr, // reserved
                                            &typeId,
@@ -809,7 +809,7 @@ namespace registry {
 
     _ASSERTE(IsValid());
 
-    const auto retCode = ::RegQueryInfoKey(_hKey, //
+    const auto retCode = ::RegQueryInfoKeyW(_hKey, //
                                            nullptr, //
                                            nullptr, //
                                            nullptr, //
@@ -834,7 +834,7 @@ namespace registry {
     // and the maximum length of the subkey names
     DWORD subKeyCount {};
     DWORD maxSubKeyNameLen {};
-    auto  retCode = ::RegQueryInfoKey(_hKey, //
+    auto  retCode = ::RegQueryInfoKeyW(_hKey, //
                                      nullptr, // no user-defined class
                                      nullptr, // no user-defined class size
                                      nullptr, // reserved
@@ -866,7 +866,7 @@ namespace registry {
     for(DWORD index = 0; index < subKeyCount; index++) {
       // Get the name of the current subkey
       DWORD subKeyNameLen = maxSubKeyNameLen;
-      retCode             = ::RegEnumKeyEx(_hKey, //
+      retCode             = ::RegEnumKeyExW(_hKey, //
                                index, //
                                nameBuffer.get(), //
                                &subKeyNameLen, //
@@ -898,7 +898,7 @@ namespace registry {
     // and the maximum length of the value names
     DWORD valueCount {};
     DWORD maxValueNameLen {};
-    auto  retCode = ::RegQueryInfoKey(_hKey, //
+    auto  retCode = ::RegQueryInfoKeyW(_hKey, //
                                      nullptr, // no user-defined class
                                      nullptr, // no user-defined class size
                                      nullptr, // reserved
@@ -931,7 +931,7 @@ namespace registry {
       // Get the name and the type of the current value
       DWORD valueNameLen = maxValueNameLen;
       DWORD valueType {};
-      retCode = ::RegEnumValue(_hKey, //
+      retCode = ::RegEnumValueW(_hKey, //
                                index, //
                                nameBuffer.get(), //
                                &valueNameLen, //
