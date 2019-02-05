@@ -24,21 +24,21 @@ namespace registry {
 
     RegistryKey::RegistryKey(RegistryHive hive, RegistryView view) noexcept
       : _hive(hive)
-      , _hKey(Hive::Handle(hive))
-      , _view(view) {}
+      , _view(view)
+      , _hKey(Hive::Handle(hive)) {}
 
     RegistryKey::RegistryKey(RegistryHive hive, RegistryView view, RegistryAccessRights access) noexcept
       : _hive(hive)
-      , _hKey(Hive::Handle(hive))
       , _view(view)
-      , _access(access) {}
+      , _access(access)
+      , _hKey(Hive::Handle(hive)) {}
 
     RegistryKey::RegistryKey(RegistryKey&& other) noexcept
-      : _hive(other._hive)
-      , _hKey(Hive::Handle(other._hive))
-      , _keyName(other._keyName)
-      , _view(other._view)
-      , _access(other._access) {
+      : _hive(std::move(other._hive))
+      , _view(std::move(other._view))
+      , _access(std::move(other._access))
+      , _hKey(std::move(other._hKey))
+      , _keyName(std::move(other._keyName)) {
         // Other doesn't own the handle anymore
         other._hKey = nullptr;
     }
@@ -50,7 +50,12 @@ namespace registry {
             Close();
 
             // Move from other (i.e. take ownership of other's raw handle)
-            _hKey = other._hKey;
+			_hive = std::move(other._hive);
+			_view = std::move(other._view);
+			_access = std::move(other._access);
+			_keyName = std::move(other._keyName);
+			_hKey = std::move(other._hKey);
+
             other._hKey = nullptr;
         }
         return *this;
@@ -63,9 +68,9 @@ namespace registry {
 
     RegistryKey::RegistryKey(const RegistryKey& other, HKEY hKey, std::string subkey)
       : _hive(other._hive)
-      , _hKey(hKey)
       , _view(other._view)
-      , _access(other._access) {
+      , _access(other._access)
+      , _hKey(hKey) {
         ValidateKeyName(subkey);
         _keyName = subkey;
     }
@@ -186,14 +191,14 @@ namespace registry {
 
         HKEY hKey = nullptr;
         const auto retCode = ::RegCreateKeyExW(_hKey, //
-                                               wsubkey.c_str(), //
-                                               0, // reserved
-                                               REG_NONE, // user-defined class type parameter not supported
-                                               (DWORD)option, //
-                                               (DWORD)desiredAccess | (DWORD)view, //
-                                               nullptr, // securityAttributes,
-                                               &hKey, //
-                                               nullptr // disposition
+            wsubkey.c_str(), //
+            0, // reserved
+            REG_NONE, // user-defined class type parameter not supported
+            (DWORD)option, //
+            (DWORD)desiredAccess | (DWORD)view, //
+            nullptr, // securityAttributes,
+            &hKey, //
+            nullptr // disposition
         );
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("RegCreateKeyEx failed.", retCode);

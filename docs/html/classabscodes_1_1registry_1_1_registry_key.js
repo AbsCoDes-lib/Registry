@@ -17,6 +17,7 @@ var classabscodes_1_1registry_1_1_registry_key =
     [ "CreateSubKey", "classabscodes_1_1registry_1_1_registry_key.html#a0640914f5c00003d3ad78044439049a4", null ],
     [ "CreateSubKey", "classabscodes_1_1registry_1_1_registry_key.html#aaf40ffe741fbd88054dc2f633cf75c0f", null ],
     [ "CreateSubKey", "classabscodes_1_1registry_1_1_registry_key.html#a0b6c4900fb6d0d48f16cd97acbdd6e56", null ],
+    [ "CreateSubKey", "classabscodes_1_1registry_1_1_registry_key.html#aaf6f30900687f01a22dc6608085cd0d2", null ],
     [ "DeleteSubKey", "classabscodes_1_1registry_1_1_registry_key.html#aaa3d3c952ae66f081b14db8a1275d1d1", null ],
     [ "DeleteSubKey", "classabscodes_1_1registry_1_1_registry_key.html#a660cb0f0454fedec81bb16bd9a381e75", null ],
     [ "DeleteSubKeyTree", "classabscodes_1_1registry_1_1_registry_key.html#ab57756af45db4e6933a226b0ce436134", null ],

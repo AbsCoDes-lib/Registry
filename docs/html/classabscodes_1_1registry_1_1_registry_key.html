@@ -205,6 +205,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a0b6c4900fb6d0d48f16cd97acbdd6e56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classabscodes_1_1registry_1_1_registry_key.html">RegistryKey</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classabscodes_1_1registry_1_1_registry_key.html#a0b6c4900fb6d0d48f16cd97acbdd6e56">CreateSubKey</a> (std::string subkey, RegistryView view, RegistryAccessRights desiredAccess, RegistryOption option)</td></tr>
 <tr class="memdesc:a0b6c4900fb6d0d48f16cd97acbdd6e56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new subkey, or opens an existing one.  <a href="#a0b6c4900fb6d0d48f16cd97acbdd6e56">More...</a><br /></td></tr>
 <tr class="separator:a0b6c4900fb6d0d48f16cd97acbdd6e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6f30900687f01a22dc6608085cd0d2"><td class="memItemLeft" align="right" valign="top">LSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classabscodes_1_1registry_1_1_registry_key.html#aaf6f30900687f01a22dc6608085cd0d2">CreateSubKey</a> (std::string subkey, RegistryView view, RegistryAccessRights desiredAccess, RegistryOption option, <a class="el" href="classabscodes_1_1registry_1_1_registry_key.html">RegistryKey</a> &amp;key) noexcept</td></tr>
+<tr class="memdesc:aaf6f30900687f01a22dc6608085cd0d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new subkey, or opens an existing one.  <a href="#aaf6f30900687f01a22dc6608085cd0d2">More...</a><br /></td></tr>
+<tr class="separator:aaf6f30900687f01a22dc6608085cd0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a249f14ee838fca79251ba9b04b189f69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classabscodes_1_1registry_1_1_registry_key.html">RegistryKey</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classabscodes_1_1registry_1_1_registry_key.html#a249f14ee838fca79251ba9b04b189f69">OpenSubKey</a> (std::string subkey)</td></tr>
 <tr class="memdesc:a249f14ee838fca79251ba9b04b189f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a subkey.  <a href="#a249f14ee838fca79251ba9b04b189f69">More...</a><br /></td></tr>
 <tr class="separator:a249f14ee838fca79251ba9b04b189f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -432,7 +435,7 @@ const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValueLeng
 </div>
 </div>
 <a id="a0640914f5c00003d3ad78044439049a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0640914f5c00003d3ad78044439049a4">&#9670;&nbsp;</a></span>CreateSubKey() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0640914f5c00003d3ad78044439049a4">&#9670;&nbsp;</a></span>CreateSubKey() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -450,14 +453,13 @@ const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValueLeng
 <p>Creates a new subkey, or opens an existing one. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">subkey</td><td>Name or path to subkey to create or open. </td></tr>
-    <tr><td class="paramname">desiredAccess</td><td>Access rights, default to all access.</td></tr>
+    <tr><td class="paramname">subkey</td><td>Name or path to subkey to create or open.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">todo.</td><td></td></tr>
+    <tr><td class="paramname">RegistryException</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -475,7 +477,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a id="aaf40ffe741fbd88054dc2f633cf75c0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf40ffe741fbd88054dc2f633cf75c0f">&#9670;&nbsp;</a></span>CreateSubKey() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf40ffe741fbd88054dc2f633cf75c0f">&#9670;&nbsp;</a></span>CreateSubKey() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -510,7 +512,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">todo.</td><td></td></tr>
+    <tr><td class="paramname">RegistryException</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -528,7 +530,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="a0b6c4900fb6d0d48f16cd97acbdd6e56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b6c4900fb6d0d48f16cd97acbdd6e56">&#9670;&nbsp;</a></span>CreateSubKey() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b6c4900fb6d0d48f16cd97acbdd6e56">&#9670;&nbsp;</a></span>CreateSubKey() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -577,7 +579,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">todo.</td><td></td></tr>
+    <tr><td class="paramname">RegistryException</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -594,6 +596,71 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node3" href="classabscodes_1_1registry_1_1_registry_key.html#af3e6f3d4fb489e5b8253fbed77a14e87" title="Ensure the key is not closed. " alt="" coords="500,5,724,47"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="aaf6f30900687f01a22dc6608085cd0d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6f30900687f01a22dc6608085cd0d2">&#9670;&nbsp;</a></span>CreateSubKey() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LSTATUS abscodes::registry::RegistryKey::CreateSubKey </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>subkey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RegistryView&#160;</td>
+          <td class="paramname"><em>view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RegistryAccessRights&#160;</td>
+          <td class="paramname"><em>desiredAccess</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RegistryOption&#160;</td>
+          <td class="paramname"><em>option</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classabscodes_1_1registry_1_1_registry_key.html">RegistryKey</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new subkey, or opens an existing one. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subkey</td><td>Name or path to subkey to create or open. </td></tr>
+    <tr><td class="paramname">view</td><td>todo </td></tr>
+    <tr><td class="paramname">desiredAccess</td><td>Access rights, default to all access. </td></tr>
+    <tr><td class="paramname">option</td><td>todo </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -738,7 +805,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">todo.</td><td></td></tr>
+    <tr><td class="paramname">RegistryException</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -794,7 +861,7 @@ Here is the call graph for this function:</div>
 <map name="classabscodes_1_1registry_1_1_registry_key_a133a06da965786d498a2864905a2b1cf_cgraph" id="classabscodes_1_1registry_1_1_registry_key_a133a06da965786d498a2864905a2b1cf_cgraph">
 <area shape="rect" id="node2" href="classabscodes_1_1registry_1_1_registry_key.html#ace602a07caa8587f2c1820e48240e377" title="Ensure the key is writable. " alt="" coords="271,5,476,47"/>
 <area shape="rect" id="node4" href="classabscodes_1_1registry_1_1_registry_key.html#adc9c33ab7e703b9440f1c9bd192b88f1" title="Is the wrapped HKEY handle valid? " alt="" coords="796,35,944,76"/>
-<area shape="rect" id="node5" href="classabscodes_1_1registry_1_1_registry_key.html#a249f14ee838fca79251ba9b04b189f69" title="Open a subkey. " alt="" coords="280,123,467,164"/>
+<area shape="rect" id="node5" href="classabscodes_1_1registry_1_1_registry_key.html#a249f14ee838fca79251ba9b04b189f69" title="Open a subkey. " alt="" coords="280,147,467,188"/>
 <area shape="rect" id="node3" href="classabscodes_1_1registry_1_1_registry_key.html#af3e6f3d4fb489e5b8253fbed77a14e87" title="Ensure the key is not closed. " alt="" coords="524,5,748,47"/>
 </map>
 </div>
@@ -923,19 +990,27 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">todo.</td><td></td></tr>
+    <tr><td class="paramname">RegistryException</td><td></td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="classabscodes_1_1registry_1_1_registry_key.html#a133a06da965786d498a2864905a2b1cf">DeleteSubKeyTree()</a>, and <a class="el" href="classabscodes_1_1registry_1_1_registry_key.html#ab8290c8f4c47a953354102afa5852ce6">OpenSubKey()</a>.</p>
+<p class="reference">References <a class="el" href="classabscodes_1_1registry_1_1_registry_key.html#a249f14ee838fca79251ba9b04b189f69">OpenSubKey()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classabscodes_1_1registry_1_1_registry_key.html#a133a06da965786d498a2864905a2b1cf">DeleteSubKeyTree()</a>, and <a class="el" href="classabscodes_1_1registry_1_1_registry_key.html#a249f14ee838fca79251ba9b04b189f69">OpenSubKey()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classabscodes_1_1registry_1_1_registry_key_a249f14ee838fca79251ba9b04b189f69_cgraph.png" border="0" usemap="#classabscodes_1_1registry_1_1_registry_key_a249f14ee838fca79251ba9b04b189f69_cgraph" alt=""/></div>
+<map name="classabscodes_1_1registry_1_1_registry_key_a249f14ee838fca79251ba9b04b189f69_cgraph" id="classabscodes_1_1registry_1_1_registry_key_a249f14ee838fca79251ba9b04b189f69_cgraph">
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classabscodes_1_1registry_1_1_registry_key_a249f14ee838fca79251ba9b04b189f69_icgraph.png" border="0" usemap="#classabscodes_1_1registry_1_1_registry_key_a249f14ee838fca79251ba9b04b189f69_icgraph" alt=""/></div>
 <map name="classabscodes_1_1registry_1_1_registry_key_a249f14ee838fca79251ba9b04b189f69_icgraph" id="classabscodes_1_1registry_1_1_registry_key_a249f14ee838fca79251ba9b04b189f69_icgraph">
-<area shape="rect" id="node2" href="classabscodes_1_1registry_1_1_registry_key.html#a133a06da965786d498a2864905a2b1cf" title="Deletes the specified subkey and its tree. " alt="" coords="240,5,457,47"/>
-<area shape="rect" id="node3" href="classabscodes_1_1registry_1_1_registry_key.html#ab8290c8f4c47a953354102afa5852ce6" title="Open a subkey. " alt="" coords="255,71,442,112"/>
+<area shape="rect" id="node2" href="classabscodes_1_1registry_1_1_registry_key.html#a133a06da965786d498a2864905a2b1cf" title="Deletes the specified subkey and its tree. " alt="" coords="240,29,457,71"/>
 </map>
 </div>
 
@@ -978,7 +1053,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">todo.</td><td></td></tr>
+    <tr><td class="paramname">RegistryException</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -989,7 +1064,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classabscodes_1_1registry_1_1_registry_key_ab8290c8f4c47a953354102afa5852ce6_cgraph.png" border="0" usemap="#classabscodes_1_1registry_1_1_registry_key_ab8290c8f4c47a953354102afa5852ce6_cgraph" alt=""/></div>
 <map name="classabscodes_1_1registry_1_1_registry_key_ab8290c8f4c47a953354102afa5852ce6_cgraph" id="classabscodes_1_1registry_1_1_registry_key_ab8290c8f4c47a953354102afa5852ce6_cgraph">
-<area shape="rect" id="node2" href="classabscodes_1_1registry_1_1_registry_key.html#a249f14ee838fca79251ba9b04b189f69" title="Open a subkey. " alt="" coords="240,5,427,47"/>
+<area shape="rect" id="node2" href="classabscodes_1_1registry_1_1_registry_key.html#a249f14ee838fca79251ba9b04b189f69" title="Open a subkey. " alt="" coords="240,29,427,71"/>
 </map>
 </div>
 
@@ -1046,7 +1121,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">todo.</td><td></td></tr>
+    <tr><td class="paramname">RegistryException</td><td></td></tr>
   </table>
   </dd>
 </dl>
