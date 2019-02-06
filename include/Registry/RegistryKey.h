@@ -60,7 +60,6 @@ namespace registry {
         ///
         explicit RegistryKey(RegistryHive hive, RegistryView view, RegistryAccessRights desiredAccess) noexcept;
 
-
         /// Take ownership of the input key handle.
         /// The input key handle wrapper is reset to an empty state.
         RegistryKey(RegistryKey&& other) noexcept;
@@ -150,9 +149,8 @@ namespace registry {
         /// Creates a new subkey, or opens an existing one.
         ///
         /// @param subkey Name or path to subkey to create or open.
-        /// @param desiredAccess Access rights, default to all access.
         ///
-        /// @exception todo.
+        /// @exception RegistryException
         ///
         RegistryKey CreateSubKey(std::string subkey);
 
@@ -162,7 +160,7 @@ namespace registry {
         /// @param subkey Name or path to subkey to create or open.
         /// @param desiredAccess Access rights, default to all access.
         ///
-        /// @exception todo.
+        /// @exception RegistryException
         ///
         RegistryKey CreateSubKey(std::string subkey, RegistryAccessRights desiredAccess);
 
@@ -174,7 +172,7 @@ namespace registry {
         /// @param desiredAccess Access rights, default to all access.
         /// @param option todo
         ///
-        /// @exception todo.
+        /// @exception RegistryException
         ///
         RegistryKey CreateSubKey(std::string subkey, RegistryView view, RegistryAccessRights desiredAccess, RegistryOption option);
 
@@ -183,7 +181,7 @@ namespace registry {
         ///
         /// @param subkey Name or path to subkey to create or open.
         ///
-        /// @exception todo.
+        /// @exception RegistryException
         ///
         RegistryKey OpenSubKey(std::string subkey);
 
@@ -193,7 +191,7 @@ namespace registry {
         /// @param subkey Name or path to subkey to create or open.
         /// @param desiredAccess Access rights, default to all access.
         ///
-        /// @exception todo.
+        /// @exception RegistryException
         ///
         RegistryKey OpenSubKey(std::string subkey, RegistryAccessRights desiredAccess);
 
@@ -205,7 +203,7 @@ namespace registry {
         /// @param desiredAccess Access rights, default to all access.
         /// @param option todo
         ///
-        /// @exception todo.
+        /// @exception RegistryException
         ///
         RegistryKey OpenSubKey(std::string subkey, RegistryView view, RegistryAccessRights desiredAccess, RegistryOption option);
 
@@ -236,7 +234,7 @@ namespace registry {
         ///
         /// @param subkey SubKey to delete.
         ///
-        /// @exception todo.
+        /// @exception RegistryException
         ///
         void DeleteSubKeyTree(std::string subkey, RegistryAccessRights desiredAccess = RegistryAccessRights::AllAccess);
 
@@ -391,45 +389,29 @@ namespace registry {
         const size_t _maxValueLength = 16383;
     };
 
-    void swap(RegistryKey& lhs, RegistryKey& rhs) noexcept;
+    inline void swap(RegistryKey& lhs, RegistryKey& rhs) noexcept {
+        lhs.SwapWith(rhs);
+    }
 
     //------------------------------------------------------------------------------
     //          Overloads of relational comparison operators for RegistryKey
     //------------------------------------------------------------------------------
-    inline bool operator==(const RegistryKey& a, HKEY& b) noexcept {
-        return a.Get() == b;
-    }
-    /*
-    inline bool operator==(const RegistryKey& a, const RegistryKey& b) noexcept
-    {
-      return a.Get() == b.Get();
+	inline bool operator==(const RegistryKey& a, HKEY& b) noexcept {
+		return a.Get() == b;
+	}
+
+	inline bool operator!=(const RegistryKey& a, HKEY& b) noexcept {
+		return a.Get() != b;
+	}
+
+    inline bool operator==(const RegistryKey& a, const RegistryKey& b) noexcept {
+        return a.GetHive() == b.GetHive() && a.GetView() == b.GetView() && a.GetAccessRights() == b.GetAccessRights() && a.GetName() == b.GetName();
     }
 
-    inline bool operator!=(const RegistryKey& a, const RegistryKey& b) noexcept
-    {
-      return a.Get() != b.Get();
+    inline bool operator!=(const RegistryKey& a, const RegistryKey& b) noexcept {
+		return a.GetHive() != b.GetHive() || a.GetView() != b.GetView() || a.GetAccessRights() != b.GetAccessRights() || a.GetName() != b.GetName();
     }
 
-    inline bool operator<(const RegistryKey& a, const RegistryKey& b) noexcept
-    {
-      return a.Get() < b.Get();
-    }
-
-    inline bool operator<=(const RegistryKey& a, const RegistryKey& b) noexcept
-    {
-      return a.Get() <= b.Get();
-    }
-
-    inline bool operator>(const RegistryKey& a, const RegistryKey& b) noexcept
-    {
-      return a.Get() > b.Get();
-    }
-
-    inline bool operator>=(const RegistryKey& a, const RegistryKey& b) noexcept
-    {
-      return a.Get() >= b.Get();
-    }
-    */
 } // namespace registry
 } // namespace abscodes
 

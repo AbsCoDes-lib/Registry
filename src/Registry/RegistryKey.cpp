@@ -50,11 +50,11 @@ namespace registry {
             Close();
 
             // Move from other (i.e. take ownership of other's raw handle)
-			_hive = std::move(other._hive);
-			_view = std::move(other._view);
-			_access = std::move(other._access);
-			_keyName = std::move(other._keyName);
-			_hKey = std::move(other._hKey);
+            _hive = std::move(other._hive);
+            _view = std::move(other._view);
+            _access = std::move(other._access);
+            _keyName = std::move(other._keyName);
+            _hKey = std::move(other._hKey);
 
             other._hKey = nullptr;
         }
@@ -191,15 +191,16 @@ namespace registry {
 
         HKEY hKey = nullptr;
         const auto retCode = ::RegCreateKeyExW(_hKey, //
-            wsubkey.c_str(), //
-            0, // reserved
-            REG_NONE, // user-defined class type parameter not supported
-            (DWORD)option, //
-            (DWORD)desiredAccess | (DWORD)view, //
-            nullptr, // securityAttributes,
-            &hKey, //
-            nullptr // disposition
+                                               wsubkey.c_str(), //
+                                               0, // reserved
+                                               REG_NONE, // user-defined class type parameter not supported
+                                               (DWORD)option, //
+                                               (DWORD)desiredAccess | (DWORD)view, //
+                                               nullptr, // securityAttributes,
+                                               &hKey, //
+                                               nullptr // disposition
         );
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("RegCreateKeyEx failed.", retCode);
         }
@@ -235,6 +236,7 @@ namespace registry {
                                              (DWORD)option, //
                                              (DWORD)desiredAccess | (DWORD)view, //
                                              &hKey);
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("RegOpenKeyEx failed.", retCode);
         }
@@ -266,6 +268,7 @@ namespace registry {
                                                wsubkey.c_str(), //
                                                (REGSAM)desiredAccess | (DWORD)view, //
                                                0);
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("RegDeleteKeyEx failed.", retCode);
         }
@@ -316,6 +319,7 @@ namespace registry {
         const auto retCode = ::RegDeleteValueW(_hKey, //
                                                sValueName.c_str() //
         );
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("RegDeleteValue failed.", retCode);
         }
@@ -361,14 +365,15 @@ namespace registry {
         const DWORD data = value;
         const DWORD dataSize = sizeof(data);
         const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
-        const auto result = ::RegSetValueExW(_hKey, //
-                                             sValueName.c_str(), //
-                                             0, // reserved
-                                             REG_DWORD, //
-                                             reinterpret_cast<const BYTE*>(&data), //
-                                             dataSize);
-        if(result != ERROR_SUCCESS) {
-            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_DWORD value.", result);
+        const auto retCode = ::RegSetValueExW(_hKey, //
+                                              sValueName.c_str(), //
+                                              0, // reserved
+                                              REG_DWORD, //
+                                              reinterpret_cast<const BYTE*>(&data), //
+                                              dataSize);
+
+        if(retCode != ERROR_SUCCESS) {
+            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_DWORD value.", retCode);
         }
     }
 
@@ -379,14 +384,15 @@ namespace registry {
         const ULONGLONG data = value;
         const DWORD dataSize = sizeof(data);
         const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
-        const auto result = ::RegSetValueExW(_hKey, //
-                                             sValueName.c_str(), //
-                                             0, // reserved
-                                             REG_QWORD, //
-                                             reinterpret_cast<const BYTE*>(&data), //
-                                             dataSize);
-        if(result != ERROR_SUCCESS) {
-            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_QWORD value.", result);
+        const auto retCode = ::RegSetValueExW(_hKey, //
+                                              sValueName.c_str(), //
+                                              0, // reserved
+                                              REG_QWORD, //
+                                              reinterpret_cast<const BYTE*>(&data), //
+                                              dataSize);
+
+        if(retCode != ERROR_SUCCESS) {
+            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_QWORD value.", retCode);
         }
     }
 
@@ -400,14 +406,15 @@ namespace registry {
         // Note that size is in *BYTES*, so we must scale by wchar_t.
         const DWORD dataSize = SafeSizeToDwordCast((sValue.size() + 1) * sizeof(wchar_t));
 
-        const auto result = ::RegSetValueExW(_hKey, //
-                                             sValueName.c_str(), //
-                                             0, // reserved
-                                             REG_SZ, //
-                                             reinterpret_cast<const BYTE*>(sValue.c_str()), //
-                                             dataSize);
-        if(result != ERROR_SUCCESS) {
-            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_SZ value.", result);
+        const auto retCode = ::RegSetValueExW(_hKey, //
+                                              sValueName.c_str(), //
+                                              0, // reserved
+                                              REG_SZ, //
+                                              reinterpret_cast<const BYTE*>(sValue.c_str()), //
+                                              dataSize);
+
+        if(retCode != ERROR_SUCCESS) {
+            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_SZ value.", retCode);
         }
     }
 
@@ -421,14 +428,15 @@ namespace registry {
         // Note that size is in *BYTES*, so we must scale by wchar_t.
         const DWORD dataSize = SafeSizeToDwordCast((sValue.size() + 1) * sizeof(wchar_t));
 
-        const auto result = ::RegSetValueExW(_hKey, //
-                                             sValueName.c_str(), //
-                                             0, // reserved
-                                             REG_EXPAND_SZ, //
-                                             reinterpret_cast<const BYTE*>(sValue.c_str()), //
-                                             dataSize);
-        if(result != ERROR_SUCCESS) {
-            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_EXPAND_SZ value.", result);
+        const auto retCode = ::RegSetValueExW(_hKey, //
+                                              sValueName.c_str(), //
+                                              0, // reserved
+                                              REG_EXPAND_SZ, //
+                                              reinterpret_cast<const BYTE*>(sValue.c_str()), //
+                                              dataSize);
+
+        if(retCode != ERROR_SUCCESS) {
+            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_EXPAND_SZ value.", retCode);
         }
     }
 
@@ -478,14 +486,15 @@ namespace registry {
         // Size is in *BYTES*
         const DWORD dataSize = SafeSizeToDwordCast(buffer.size() * sizeof(wchar_t));
 
-        const auto result = ::RegSetValueExW(_hKey, //
+        const auto retCode = ::RegSetValueExW(_hKey, //
                                              sValueName.c_str(), //
                                              0, // reserved
                                              REG_MULTI_SZ, //
                                              reinterpret_cast<const BYTE*>(buffer.data()), //
                                              dataSize);
-        if(result != ERROR_SUCCESS) {
-            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_MULTI_SZ value.", result);
+
+        if(retCode != ERROR_SUCCESS) {
+            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_MULTI_SZ value.", retCode);
         }
     }
 
@@ -497,14 +506,15 @@ namespace registry {
 
         const std::vector<BYTE>& data = value;
         const DWORD dataSize = SafeSizeToDwordCast(data.size());
-        const auto result = ::RegSetValueExW(_hKey, //
+        const auto retCode = ::RegSetValueExW(_hKey, //
                                              sValueName.c_str(), //
                                              0, // reserved
                                              REG_BINARY, //
                                              &data[0], //
                                              dataSize);
-        if(result != ERROR_SUCCESS) {
-            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_BINARY value.", result);
+
+        if(retCode != ERROR_SUCCESS) {
+            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_BINARY value.", retCode);
         }
     }
 
@@ -513,14 +523,15 @@ namespace registry {
         _ASSERTE(IsValid());
 
         const std::wstring sValueName = commons::utf8convert::Utf8ToUtf16(valueName);
-        const auto result = ::RegSetValueExW(_hKey, //
+        const auto retCode = ::RegSetValueExW(_hKey, //
                                              sValueName.c_str(), //
                                              0, // reserved
                                              REG_BINARY, //
                                              lpByte, //
                                              dataSize);
-        if(result != ERROR_SUCCESS) {
-            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_BINARY value.", result);
+
+        if(retCode != ERROR_SUCCESS) {
+            throw Exceptions::RegistryException("RegSetValueEx() failed in writing REG_BINARY value.", retCode);
         }
     }
 
@@ -563,6 +574,7 @@ namespace registry {
                                             &data, //
                                             &dataSize //
         );
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get DWORD value: RegGetValue failed.", retCode);
         }
@@ -588,6 +600,7 @@ namespace registry {
                                             &data, //
                                             &dataSize //
         );
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get QWORD value: RegGetValue failed.", retCode);
         }
@@ -612,6 +625,7 @@ namespace registry {
                                       nullptr, // output buffer not needed now
                                       &dataSize //
         );
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get size of string value: RegGetValue failed.", retCode);
         }
@@ -630,6 +644,7 @@ namespace registry {
                                  nullptr, // type not required
                                  &result[0], // output buffer
                                  &dataSize);
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get string value: RegGetValue failed.", retCode);
         }
@@ -662,6 +677,7 @@ namespace registry {
                                       nullptr, // type not required
                                       nullptr, // output buffer not needed now
                                       &dataSize);
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get size of expand string value: RegGetValue failed.", retCode);
         }
@@ -680,6 +696,7 @@ namespace registry {
                                  nullptr, // type not required
                                  &result[0], // output buffer
                                  &dataSize);
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get expand string value: RegGetValue failed.", retCode);
         }
@@ -707,6 +724,7 @@ namespace registry {
                                       nullptr, // type not required
                                       nullptr, // output buffer not needed now
                                       &dataSize);
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get size of multi-string value: RegGetValue failed.", retCode);
         }
@@ -725,6 +743,7 @@ namespace registry {
                                  nullptr, // no type required
                                  &data[0], // output buffer
                                  &dataSize);
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get multi-string value: RegGetValue failed.", retCode);
         }
@@ -769,6 +788,7 @@ namespace registry {
                                       nullptr, // type not required
                                       nullptr, // output buffer not needed now
                                       &dataSize);
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get size of binary data: RegGetValue failed.", retCode);
         }
@@ -784,6 +804,7 @@ namespace registry {
                                  nullptr, // type not required
                                  &data[0], // output buffer
                                  &dataSize);
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("Cannot get binary data: RegGetValue failed.", retCode);
         }
@@ -884,6 +905,7 @@ namespace registry {
                                       nullptr, // no class
                                       nullptr // no last write time
             );
+
             if(retCode != ERROR_SUCCESS) {
                 throw Exceptions::RegistryException("Cannot enumerate subkeys: RegEnumKeyEx failed.", retCode);
             }
@@ -920,6 +942,7 @@ namespace registry {
                                           nullptr, // no security descriptor
                                           nullptr // no last write time
         );
+
         if(retCode != ERROR_SUCCESS) {
             throw Exceptions::RegistryException("RegQueryInfoKey failed while preparing for value enumeration.", retCode);
         }
@@ -949,6 +972,7 @@ namespace registry {
                                       nullptr, // no data
                                       nullptr // no data size
             );
+
             if(retCode != ERROR_SUCCESS) {
                 throw Exceptions::RegistryException("Cannot enumerate values: RegEnumValue failed.", retCode);
             }

@@ -98,6 +98,11 @@ namespace RegistryTests
 			// Open the System subkey under HKEY_CURRENT_USER.
 			auto system = CurrentUser().OpenSubKey("System", RegistryAccessRights::AllAccess);
 			Assert::IsTrue(system.GetName() == "System");
+
+			// Create and open subkey
+			auto testNameCreate = CurrentUser().CreateSubKey("TestRegistryKey").CreateSubKey("TestName");
+			auto testNameOpen = CurrentUser().OpenSubKey("TestRegistryKey\\TestName");
+			Assert::IsTrue(testNameCreate.GetName() == testNameOpen.GetName());
 		}
 
 		TEST_METHOD(DeleteSubKey)

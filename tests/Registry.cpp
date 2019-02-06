@@ -13,7 +13,7 @@ namespace RegistryTests
 	{
 	public:
 
-		TEST_METHOD(GetKey_Test)
+		TEST_METHOD(GetKey_hive_Test)
 		{
 			auto software = GetKey(RegistryHive::CurrentUser, "Software");
 			auto microsotf = GetKey(software, "Microsoft");
@@ -21,6 +21,20 @@ namespace RegistryTests
 			try
 			{
 				auto test = GetKey(RegistryHive::CurrentUser, "Test");
+			}
+			catch (...)
+			{
+			}
+		}
+
+		TEST_METHOD(GetKey_registrykey_Test)
+		{
+			auto software = GetKey(CurrentUser(), "Software");
+			auto microsotf = GetKey(software, "Microsoft");
+
+			try
+			{
+				auto test = GetKey(CurrentUser(), "Test");
 			}
 			catch (...)
 			{
@@ -39,8 +53,10 @@ namespace RegistryTests
 			// Test SetValue and GetValue
 			abscodes::registry::SetValue(TestRegistryKey, "DValue", dw1);
 			Assert::IsTrue(abscodes::registry::GetValue(TestRegistryKey, "DValue").DWord() == dw1.DWord());
+			Assert::IsTrue(abscodes::registry::GetDWord(TestRegistryKey, "DValue", 0) == dw1.DWord());
 			abscodes::registry::SetValue(TestRegistryKey, "QValue", qw1);
 			Assert::IsTrue(abscodes::registry::GetValue(TestRegistryKey, "QValue").QWord() == qw1.QWord());
+			Assert::IsTrue(abscodes::registry::GetQWord(TestRegistryKey, "QValue", 0) == qw1.QWord());
 
 			// Test SetInt and GetInt
 			abscodes::registry::SetInt(TestRegistryKey, "iValue", -10);
