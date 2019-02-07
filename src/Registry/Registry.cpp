@@ -151,59 +151,59 @@ namespace registry {
     }
 
     void SetValue(RegistryKey& key, const std::string& valueName, const RegistryValue& value) noexcept {
-		try {
-			return key.SetValue(valueName, value);
-		}
-		catch (...) {
-		}
+        try {
+            return key.SetValue(valueName, value);
+        }
+        catch(...) {
+        }
     }
 
     void SetDWord(RegistryKey& key, const std::string& valueName, DWORD value) noexcept {
-		try {
-			key.SetDwordValue(valueName, value);
-		}
-		catch (...) {
-		}
+        try {
+            key.SetDwordValue(valueName, value);
+        }
+        catch(...) {
+        }
     }
 
     void SetQWord(RegistryKey& key, const std::string& valueName, ULONGLONG value) noexcept {
-		try {
-			key.SetQwordValue(valueName, value);
-		}
-		catch (...) {
-		}
+        try {
+            key.SetQwordValue(valueName, value);
+        }
+        catch(...) {
+        }
     }
 
     void SetString(RegistryKey& key, const std::string& valueName, const std::string& value) noexcept {
-		try {
-			key.SetStringValue(valueName, value);
-		}
-		catch (...) {
-		}
+        try {
+            key.SetStringValue(valueName, value);
+        }
+        catch(...) {
+        }
     }
 
     void SetExpandString(RegistryKey& key, const std::string& valueName, const std::string& value) noexcept {
-		try {
-			key.SetExpandStringValue(valueName, value);
-		}
-		catch (...) {
-		}
+        try {
+            key.SetExpandStringValue(valueName, value);
+        }
+        catch(...) {
+        }
     }
 
     void SetMultiString(RegistryKey& key, const std::string& valueName, const std::vector<std::string>& value) noexcept {
-		try {
-			key.SetMultiStringValue(valueName, value);
-		}
-		catch (...) {
-		}
+        try {
+            key.SetMultiStringValue(valueName, value);
+        }
+        catch(...) {
+        }
     }
 
     void SetBinary(RegistryKey& key, const std::string& valueName, const std::vector<BYTE>& value) noexcept {
-		try {
-			key.SetBinaryValue(valueName, value);
-		}
-		catch (...) {
-		}
+        try {
+            key.SetBinaryValue(valueName, value);
+        }
+        catch(...) {
+        }
     }
 
     void SetInt(RegistryKey& key, const std::string& valueName, int value) noexcept {
