@@ -41,7 +41,7 @@ namespace registry {
         return key.GetValue(valueName);
     }
 
-    DWORD GetDWord(RegistryKey& key, const std::string& valueName, DWORD defaultValue) {
+    DWORD GetDWord(RegistryKey& key, const std::string& valueName, DWORD defaultValue) noexcept {
         try {
             return key.GetDwordValue(valueName);
         }
@@ -50,7 +50,7 @@ namespace registry {
         return defaultValue;
     }
 
-    ULONGLONG GetQWord(RegistryKey& key, const std::string& valueName, ULONGLONG defaultValue) {
+    ULONGLONG GetQWord(RegistryKey& key, const std::string& valueName, ULONGLONG defaultValue) noexcept {
         try {
             return key.GetQwordValue(valueName);
         }
@@ -59,7 +59,7 @@ namespace registry {
         return defaultValue;
     }
 
-    const std::string GetString(RegistryKey& key, const std::string& valueName, const std::string& defaultValue) {
+    const std::string GetString(RegistryKey& key, const std::string& valueName, const std::string& defaultValue) noexcept {
         try {
             return key.GetStringValue(valueName);
         }
@@ -68,7 +68,7 @@ namespace registry {
         return defaultValue;
     }
 
-    const std::string GetExpandString(RegistryKey& key, const std::string& valueName, const std::string& defaultValue) {
+    const std::string GetExpandString(RegistryKey& key, const std::string& valueName, const std::string& defaultValue) noexcept {
         try {
             return key.GetExpandStringValue(valueName);
         }
@@ -77,7 +77,7 @@ namespace registry {
         return defaultValue;
     }
 
-    const std::vector<std::string> GetMultiString(RegistryKey& key, const std::string& valueName, const std::vector<std::string>& defaultValue) {
+    const std::vector<std::string> GetMultiString(RegistryKey& key, const std::string& valueName, const std::vector<std::string>& defaultValue) noexcept {
         try {
             return key.GetMultiStringValue(valueName);
         }
@@ -86,7 +86,7 @@ namespace registry {
         return defaultValue;
     }
 
-    const std::vector<BYTE> GetBinary(RegistryKey& key, const std::string& valueName, const std::vector<BYTE>& defaultValue) {
+    const std::vector<BYTE> GetBinary(RegistryKey& key, const std::string& valueName, const std::vector<BYTE>& defaultValue) noexcept {
         try {
             return key.GetBinaryValue(valueName);
         }
@@ -95,7 +95,7 @@ namespace registry {
         return defaultValue;
     }
 
-    int GetInt(RegistryKey& key, const std::string& valueName, int defaultValue) {
+    int GetInt(RegistryKey& key, const std::string& valueName, int defaultValue) noexcept {
         try {
             return commons::number::toNumber<int>(key.GetStringValue(valueName));
         }
@@ -104,7 +104,7 @@ namespace registry {
         return defaultValue;
     }
 
-    unsigned int GetUInt(RegistryKey& key, const std::string& valueName, unsigned int defaultValue) {
+    unsigned int GetUInt(RegistryKey& key, const std::string& valueName, unsigned int defaultValue) noexcept {
         try {
             return commons::number::toNumber<unsigned int>(key.GetStringValue(valueName));
         }
@@ -113,7 +113,7 @@ namespace registry {
         return defaultValue;
     }
 
-    long GetLong(RegistryKey& key, const std::string& valueName, long defaultValue) {
+    long GetLong(RegistryKey& key, const std::string& valueName, long defaultValue) noexcept {
         try {
             return commons::number::toNumber<long>(key.GetStringValue(valueName));
         }
@@ -122,7 +122,7 @@ namespace registry {
         return defaultValue;
     }
 
-    unsigned long GetULong(RegistryKey& key, const std::string& valueName, unsigned long defaultValue) {
+    unsigned long GetULong(RegistryKey& key, const std::string& valueName, unsigned long defaultValue) noexcept {
         try {
             return commons::number::toNumber<unsigned long>(key.GetStringValue(valueName));
         }
@@ -131,7 +131,7 @@ namespace registry {
         return defaultValue;
     }
 
-    double GetDouble(RegistryKey& key, const std::string& valueName, double defaultValue) {
+    double GetDouble(RegistryKey& key, const std::string& valueName, double defaultValue) noexcept {
         try {
             return commons::number::toNumber<double>(key.GetStringValue(valueName));
         }
@@ -150,35 +150,63 @@ namespace registry {
         return key.OpenSubKey(keyName).SetValue(valueName, value);
     }
 
-    void SetValue(RegistryKey& key, const std::string& valueName, const RegistryValue& value) {
-        return key.SetValue(valueName, value);
+    void SetValue(RegistryKey& key, const std::string& valueName, const RegistryValue& value) noexcept {
+		try {
+			return key.SetValue(valueName, value);
+		}
+		catch (...) {
+		}
     }
 
-    void SetDWord(RegistryKey& key, const std::string& valueName, DWORD value) {
-        key.SetDwordValue(valueName, value);
+    void SetDWord(RegistryKey& key, const std::string& valueName, DWORD value) noexcept {
+		try {
+			key.SetDwordValue(valueName, value);
+		}
+		catch (...) {
+		}
     }
 
-    void SetQWord(RegistryKey& key, const std::string& valueName, ULONGLONG value) {
-        key.SetQwordValue(valueName, value);
+    void SetQWord(RegistryKey& key, const std::string& valueName, ULONGLONG value) noexcept {
+		try {
+			key.SetQwordValue(valueName, value);
+		}
+		catch (...) {
+		}
     }
 
-    void SetString(RegistryKey& key, const std::string& valueName, const std::string& value) {
-        key.SetStringValue(valueName, value);
+    void SetString(RegistryKey& key, const std::string& valueName, const std::string& value) noexcept {
+		try {
+			key.SetStringValue(valueName, value);
+		}
+		catch (...) {
+		}
     }
 
-    void SetExpandString(RegistryKey& key, const std::string& valueName, const std::string& value) {
-        key.SetExpandStringValue(valueName, value);
+    void SetExpandString(RegistryKey& key, const std::string& valueName, const std::string& value) noexcept {
+		try {
+			key.SetExpandStringValue(valueName, value);
+		}
+		catch (...) {
+		}
     }
 
-    void SetMultiString(RegistryKey& key, const std::string& valueName, const std::vector<std::string>& value) {
-        key.SetMultiStringValue(valueName, value);
+    void SetMultiString(RegistryKey& key, const std::string& valueName, const std::vector<std::string>& value) noexcept {
+		try {
+			key.SetMultiStringValue(valueName, value);
+		}
+		catch (...) {
+		}
     }
 
-    void SetBinary(RegistryKey& key, const std::string& valueName, const std::vector<BYTE>& value) {
-        key.SetBinaryValue(valueName, value);
+    void SetBinary(RegistryKey& key, const std::string& valueName, const std::vector<BYTE>& value) noexcept {
+		try {
+			key.SetBinaryValue(valueName, value);
+		}
+		catch (...) {
+		}
     }
 
-    void SetInt(RegistryKey& key, const std::string& valueName, int value) {
+    void SetInt(RegistryKey& key, const std::string& valueName, int value) noexcept {
         try {
             key.SetStringValue(valueName, commons::number::toString(value));
         }
@@ -186,7 +214,7 @@ namespace registry {
         }
     }
 
-    void SetUInt(RegistryKey& key, const std::string& valueName, unsigned int value) {
+    void SetUInt(RegistryKey& key, const std::string& valueName, unsigned int value) noexcept {
         try {
             key.SetStringValue(valueName, commons::number::toString(value));
         }
@@ -194,7 +222,7 @@ namespace registry {
         }
     }
 
-    void SetLong(RegistryKey& key, const std::string& valueName, long value) {
+    void SetLong(RegistryKey& key, const std::string& valueName, long value) noexcept {
         try {
             key.SetStringValue(valueName, commons::number::toString(value));
         }
@@ -202,7 +230,7 @@ namespace registry {
         }
     }
 
-    void SetULong(RegistryKey& key, const std::string& valueName, unsigned long value) {
+    void SetULong(RegistryKey& key, const std::string& valueName, unsigned long value) noexcept {
         try {
             key.SetStringValue(valueName, commons::number::toString(value));
         }
@@ -210,7 +238,7 @@ namespace registry {
         }
     }
 
-    void SetDouble(RegistryKey& key, const std::string& valueName, double value) {
+    void SetDouble(RegistryKey& key, const std::string& valueName, double value) noexcept {
         try {
             key.SetStringValue(valueName, commons::number::toString(value));
         }

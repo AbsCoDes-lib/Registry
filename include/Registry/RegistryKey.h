@@ -168,7 +168,7 @@ namespace registry {
         /// Creates a new subkey, or opens an existing one.
         ///
         /// @param subkey Name or path to subkey to create or open.
-        /// @param view todo
+        /// @param view A scpecific registry view
         /// @param desiredAccess Access rights, default to all access.
         /// @param option todo
         ///
@@ -199,7 +199,7 @@ namespace registry {
         /// Open a subkey. Will throw an exception if the subkey doesn't exist
         ///
         /// @param subkey Name or path to subkey to create or open.
-        /// @param view todo
+        /// @param view A scpecific registry view
         /// @param desiredAccess Access rights, default to all access.
         /// @param option todo
         ///
@@ -223,6 +223,7 @@ namespace registry {
         /// subkeys. To delete a tree of subkeys use, DeleteSubKeyTree.
         ///
         /// @param subkey SubKey to delete.
+        /// @param view A scpecific registry view
         /// @param desiredAccess Access rights, default to all access.
         ///
         /// @exception RegistryException thrown if the subkey has child subkeys.
@@ -240,6 +241,8 @@ namespace registry {
 
         ///
         /// Deletes the specified subkey and its tree.
+		///
+        /// @param view A scpecific registry view
         /// @param desiredAccess Access rights, default to all access.
         ///
         /// @param subkey SubKey to delete.
