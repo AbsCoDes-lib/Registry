@@ -81,6 +81,26 @@ namespace registry {
     ///
     REGISTRY_API RegistryKey GetKey(RegistryKey& key, const std::string& keyName);
 
+	///
+	/// Delete the key with the specified name, in the specified registry key.
+	///
+	/// @param key A registry key.
+	/// @param subkey SubKey to delete.
+	/// @param desiredAccess Access rights, default to all access.
+	///
+	REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryAccessRights desiredAccess = RegistryAccessRights::AllAccess) noexcept;
+
+	///
+	/// Delete the key with the specified name, in the specified registry key.
+	///
+	/// @param key A registry key.
+	/// @param subkey SubKey to delete.
+	/// @param view A scpecific registry view
+	/// @param desiredAccess Access rights, default to all access.
+	///
+	REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryView view, RegistryAccessRights desiredAccess = RegistryAccessRights::AllAccess) noexcept;
+
+
     ///
     /// Retrieves the value associated with the specified name, in the specified registry hive.
     /// If the value is not found in the specified hive, a RegistryException is throw.
@@ -186,27 +206,13 @@ namespace registry {
     REGISTRY_API void SetULong(RegistryKey& key, const std::string& valueName, unsigned long value) noexcept;
     REGISTRY_API void SetDouble(RegistryKey& key, const std::string& valueName, double value) noexcept;
 
-
-
 	///
 	/// Delete the key with the specified name, in the specified registry key.
 	///
 	/// @param key A registry key.
-	/// @param subkey SubKey to delete.
-	/// @param desiredAccess Access rights, default to all access.
+	/// @param valueName Value to remove.
 	///
-	REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryAccessRights desiredAccess = RegistryAccessRights::AllAccess) noexcept;
-
-	///
-	/// Delete the key with the specified name, in the specified registry key.
-	///
-	/// @param key A registry key.
-	/// @param subkey SubKey to delete.
-	/// @param view A scpecific registry view
-	/// @param desiredAccess Access rights, default to all access.
-	///
-	REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryView view, RegistryAccessRights desiredAccess = RegistryAccessRights::AllAccess) noexcept;
-
+	REGISTRY_API void DeleteValue(RegistryKey& key, std::string valueName) noexcept;
 
 } // namespace registry
 } // namespace abscodes

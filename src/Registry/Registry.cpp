@@ -27,6 +27,22 @@ namespace registry {
         return key.OpenSubKey(keyName);
     }
 
+    void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryAccessRights desiredAccess) noexcept {
+        try {
+            key.DeleteSubKey(subkey, desiredAccess);
+        }
+        catch(...) {
+        }
+    }
+
+    void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryView view, RegistryAccessRights desiredAccess) noexcept {
+        try {
+            key.DeleteSubKey(subkey, view, desiredAccess);
+        }
+        catch(...) {
+        }
+    }
+
     /// Retrieves the value associated with the specified name, in the specified registry key.
     /// If the value is not found in the specified key, a RegistryException is throw.
     RegistryValue GetValue(const RegistryHive hive, const std::string& keyName, const std::string& valueName) {
@@ -246,17 +262,9 @@ namespace registry {
         }
     }
 
-    REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryAccessRights desiredAccess) noexcept {
+    REGISTRY_API void DeleteValue(RegistryKey& key, std::string valueName) noexcept {
         try {
-            key.DeleteSubKey(subkey, desiredAccess);
-        }
-        catch(...) {
-        }
-    }
-
-    REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryView view, RegistryAccessRights desiredAccess) noexcept {
-        try {
-            key.DeleteSubKey(subkey, view, desiredAccess);
+            key.DeleteValue(valueName);
         }
         catch(...) {
         }
