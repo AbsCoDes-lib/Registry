@@ -246,6 +246,22 @@ namespace registry {
         }
     }
 
+    REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryAccessRights desiredAccess) noexcept {
+        try {
+            key.DeleteSubKey(subkey, desiredAccess);
+        }
+        catch(...) {
+        }
+    }
+
+    REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryView view, RegistryAccessRights desiredAccess) noexcept {
+        try {
+            key.DeleteSubKey(subkey, view, desiredAccess);
+        }
+        catch(...) {
+        }
+    }
+
 
 } // namespace registry
 } // namespace abscodes

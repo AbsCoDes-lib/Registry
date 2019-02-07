@@ -186,6 +186,28 @@ namespace registry {
     REGISTRY_API void SetULong(RegistryKey& key, const std::string& valueName, unsigned long value) noexcept;
     REGISTRY_API void SetDouble(RegistryKey& key, const std::string& valueName, double value) noexcept;
 
+
+
+	///
+	/// Delete the key with the specified name, in the specified registry key.
+	///
+	/// @param key A registry key.
+	/// @param subkey SubKey to delete.
+	/// @param desiredAccess Access rights, default to all access.
+	///
+	REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryAccessRights desiredAccess = RegistryAccessRights::AllAccess) noexcept;
+
+	///
+	/// Delete the key with the specified name, in the specified registry key.
+	///
+	/// @param key A registry key.
+	/// @param subkey SubKey to delete.
+	/// @param view A scpecific registry view
+	/// @param desiredAccess Access rights, default to all access.
+	///
+	REGISTRY_API void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryView view, RegistryAccessRights desiredAccess = RegistryAccessRights::AllAccess) noexcept;
+
+
 } // namespace registry
 } // namespace abscodes
 
