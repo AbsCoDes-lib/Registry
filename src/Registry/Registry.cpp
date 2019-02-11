@@ -27,6 +27,15 @@ namespace registry {
         return key.OpenSubKey(keyName);
     }
 
+    bool HasKey(RegistryKey& key, const std::string& keyName) noexcept {
+        try {
+            return key.OpenSubKey(keyName).IsValid();
+        }
+        catch(...) {
+        }
+        return false;
+    }
+
     void DeleteSubKey(RegistryKey& key, std::string subkey, RegistryAccessRights desiredAccess) noexcept {
         try {
             key.DeleteSubKey(subkey, desiredAccess);
@@ -55,6 +64,16 @@ namespace registry {
 
     RegistryValue GetValue(RegistryKey& key, const std::string& valueName) {
         return key.GetValue(valueName);
+    }
+
+    REGISTRY_API bool HasValue(RegistryKey& key, const std::string& valueName) noexcept {
+        try {
+            key.GetValue(valueName);
+            return true;
+        }
+        catch(...) {
+        }
+        return false;
     }
 
     DWORD GetDWord(RegistryKey& key, const std::string& valueName, DWORD defaultValue) noexcept {
@@ -262,7 +281,7 @@ namespace registry {
         }
     }
 
-    REGISTRY_API void DeleteValue(RegistryKey& key, std::string valueName) noexcept {
+    void DeleteValue(RegistryKey& key, std::string valueName) noexcept {
         try {
             key.DeleteValue(valueName);
         }

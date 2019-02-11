@@ -70,16 +70,24 @@ namespace registry {
     ///
     REGISTRY_API RegistryKey GetKey(const RegistryHive hive, const std::string& keyName);
 
-    ///
-    /// Retrieves the key associated with the specified name, in the specified registry key.
-    /// If the key is not found in the specified key, a RegistryException is thrown.
-    ///
-    /// @param key A registry key.
-    /// @param keyName Name or path to the subkey.
-    ///
-    /// @exception RegistryException
-    ///
-    REGISTRY_API RegistryKey GetKey(RegistryKey& key, const std::string& keyName);
+	///
+	/// Retrieves the key associated with the specified name, in the specified registry key.
+	/// If the key is not found in the specified key, a RegistryException is thrown.
+	///
+	/// @param key A registry key.
+	/// @param keyName Name or path to the subkey.
+	///
+	/// @exception RegistryException
+	///
+	REGISTRY_API RegistryKey GetKey(RegistryKey& key, const std::string& keyName);
+
+	///
+	/// Check if the key associated with the specified name, in the specified registry key.
+	///
+	/// @param key A registry key.
+	/// @param keyName Name or path to the subkey.
+	///
+	REGISTRY_API bool HasKey(RegistryKey& key, const std::string& keyName) noexcept;
 
 	///
 	/// Delete the key with the specified name, in the specified registry key.
@@ -125,16 +133,25 @@ namespace registry {
     ///
     REGISTRY_API RegistryValue GetValue(RegistryKey& key, const std::string& keyName, const std::string& valueName);
 
-    ///
-    /// Retrieves the value associated with the specified name, in the specified registry key.
-    /// If the value is not found in the specified key, a RegistryException is throw.
-    ///
-    /// @param key A registry key.
-    /// @param valueName Name of the value.
-    ///
-    /// @exception RegistryException
-    ///
-    REGISTRY_API RegistryValue GetValue(RegistryKey& key, const std::string& valueName);
+	///
+	/// Retrieves the value associated with the specified name, in the specified registry key.
+	/// If the value is not found in the specified key, a RegistryException is throw.
+	///
+	/// @param key A registry key.
+	/// @param valueName Name of the value.
+	///
+	/// @exception RegistryException
+	///
+	REGISTRY_API RegistryValue GetValue(RegistryKey& key, const std::string& valueName);
+
+	///
+	/// Check if the value associated with the specified name, in the specified registry key.
+	///
+	/// @param key A registry key.
+	/// @param valueName Name of the value.
+	///
+	///
+	REGISTRY_API bool HasValue(RegistryKey& key, const std::string& valueName) noexcept;
 
 
     /// Retrieves the value associated with the specified name, in the specified registry key.
